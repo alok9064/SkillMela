@@ -1,0 +1,199 @@
+
+.signin-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../image/cover.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* ------Login------ */
+.wrapper-signin{
+    position: relative;
+    width: 800px;
+    height: 450px;
+    border-radius: 15px;
+    border: 10px solid white;
+    box-shadow: 0 0 20px #162938;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #F6F8FA;
+}
+
+.text-box-signin{
+    width: 350px;
+    height: 450px;
+    border-radius: 0 30%;
+    background-color: #6222f7;
+    background-image: url('../images/login.png');
+    background-repeat: no-repeat;
+    background-size: 350px;
+    background-position: center;
+}
+
+.form-box-signin{
+    padding: 0 50px;
+    width: 450px;
+    height: auto;
+}
+
+.form-box-signin h2{
+    margin-top: 10px;
+    font-size: 20px;
+    color: #040404;
+    text-align: center;
+}
+.form-box h2 span{
+    color: #300594;
+}
+.input-box-signin{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #585858;
+    margin: 30px 0;
+}
+/* .input-box-signin label{
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #585858;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.3s;
+}
+.input-box-signin input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+} */
+.input-box-signin input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #000000;
+    font-weight: 600px;
+    padding: 0 35px 0 5px;
+}
+.input-box-signin .icon{
+    position: absolute;
+    left: 300px;
+    font-size: 1.2em;
+    color: #585858;
+    line-height: 57px;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: #585858;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot label input{
+    accent-color: #585858;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: #585858;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+    color: #100231;
+}
+
+.login-btn{
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    background: #fff;
+    border: 2px solid #162938;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 900;
+    transition: 0.4s;
+}
+.login-btn:hover{
+    cursor: pointer;
+    color: white;
+    background-color: #100231;
+    transform: translateY(-2px);
+}
+
+
+/* ----Google---- */
+.button.google-signin {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    padding: 0.5rem 1.4rem;
+    margin-top: 15px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(50, 50, 80, 0.25);
+    gap: 0.75rem;
+    color: #ffffff;
+    background-color: rgb(50, 50, 80);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+button.google-signin svg {
+    height: 24px;
+    width: 24px;
+    fill: #fff;
+    margin-right: 0.5rem;
+}
+.button.google-signin:hover {
+    transform: scale(1.02);
+    background-color: rgb(90, 90, 120);
+    box-shadow: 0 2px 4px rgba(90, 90, 120, 0.1);
+}
+.button.google-signin:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 40, 0.3);
+}
+.button.google-signin:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+@media (max-width: 480px) {
+    .button.google {
+        max-width: 100%;
+    }
+}
+
+.login-register-signin{
+    font-size: .9em;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register-signin p a{
+    color: #585858;
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register-signin p a:hover{
+    color: #100231;
+    text-decoration: underline;
+}

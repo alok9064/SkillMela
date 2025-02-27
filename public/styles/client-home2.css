@@ -1,0 +1,215 @@
+
+.Client-home-section{
+    height: 100vh;
+    
+    background: linear-gradient(60deg, #F6F8FA, #dccefd);
+    /* padding: 20px 70px 0px 70px; */
+    /* margin: 5px; */
+}
+.client-home-container {
+  padding: 90px 100px 30px 100px;
+  /* margin: 5px; */
+}
+.client-job_post{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 0px 30px 0;
+}
+.client-job_post h1{
+    
+    font-size: 30px;
+    padding: 10px;
+}
+.job-post-btn{
+    height:40px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    font-size: 18px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    margin-top: 25px;
+}
+.job-post-btn i{
+  font-size: 18px;
+  padding: 5px;
+}
+.job-post-btn:hover{
+  background-color: #a64dff;
+  color: white;
+  border: 0.3px solid white;
+}
+
+.client-msg-display{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  margin: 1px 10px 1px 10px;
+}
+
+.client-card{
+    height: auto;
+    width: 230px;
+    background-color:white;
+    border-radius: 17px;
+    padding: 15px;
+    margin: 0 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.client-card:hover{
+  border: 0.3px solid green;
+}
+.client-title{
+    display: flex;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px 5px;
+    font-size: 20px;
+}
+.client-status{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 15px 5px;
+    font-size: 17px;
+}
+.client-message{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 15px 5px;
+    font-size: 17px;
+}
+.btn-icon{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.client-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 40px 2px 10px 2px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .client-chat-icon {
+    border: none;
+    background-color: transparent;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+
+
+  /* 2nd card */
+  .client-msg-container {
+    width: 230px;
+    border: 1px dashed black;
+    padding: 5px;
+    border-radius: 5px;
+    margin:0 20px 20px 0;
+    background-color: white;
+    border-radius: 20px;
+  }
+  .client-msg-container:hover{
+    border: 0.5px dashed green;
+  }
+  
+  .client-msg-icon {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .client-msg-icon img{
+    height: 60px ;
+    width: 90px;
+    border-radius: 50%;
+  }
+  
+  .client-msg-text {
+    text-align: center;
+  }
+  .client-msg-text h3{
+    padding: 10px 0;
+  }
+  .client-msg-text p{
+    padding: 10px 0;
+  }
+  
+  .msg-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .client-msg-button {
+    display: block;
+    width: 80%;
+    padding: 10px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0 5px 20px;
+  }
+
+
+
+  .home-client-payments-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    justify-content: center;
+    padding: 120px;
+  }
+  .home-client-payments{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    height: auto;
+    width: 300px;
+    /* margin-top: 30px; */
+    margin: 30px 30px 0 0;
+  }
+  .home-client-payments:hover{
+    border: 0.3px solid green;
+  }
+  
+  .client-home-parah{
+    font-size: 20px;
+    padding: 15px 10px 15px 0px;
+
+  }
+  .description{
+    display: flex;
+    flex-direction: row;
+  }
+  .description img{
+    height: 90px;
+    width: 100px;
+    padding: 10px;
+  }

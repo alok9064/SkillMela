@@ -1,0 +1,89 @@
+<%- include("partials/header.ejs") %>
+
+<section class="comp-section">
+  <div class="comp-container">
+    <div class="left-section">
+      <h2>Coding Contest</h2>
+      <p><strong>Completion Duration:</strong> 2 hours</p>
+      <p><strong>Number of Questions:</strong> 5</p>
+      <p><strong>Start Date:</strong> 01-10-2024 09:00 AM</p>
+      <p><strong>End Date:</strong> 01-10-2024 11:00 AM</p>
+    </div>
+
+    <div class="right-section">
+      <div class="comp-content">
+        <h3>Welcome to the Coding Contest</h3>
+        <p>This challenge tests your programming skills in various languages like Python, Java, C++, and more. We look forward to seeing your solutions!</p>
+
+        <h4>Registration Form</h4>
+        <p><strong>Logged in as:</strong> swatimicrosoft28@gmail.com</p>
+        <button class="free-profile-card card-box1 card-get-button">Switch Accounts</button>
+
+        <form class="registration-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" value="Swati Pandit" readonly>
+
+          <label for="country">Country</label>
+          <select id="country">
+            <option value="" disabled selected>Select...</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+          </select>
+
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="Type your city">
+
+          <label for="program">University / Boot Camp / Program</label>
+          <input type="text" id="program" placeholder="Type to search">
+
+          <label for="class">Class of</label>
+          <input type="text" id="class" value="2026">
+
+          <label>
+            <input type="checkbox" id="share-info">
+            I agree to share my contest results and profile information with sponsor companies.
+          </label>
+
+          <label>
+            <input type="checkbox" id="job-opportunities">
+            I'm interested in new job opportunities.
+          </label>
+
+          <label for="looking-for">I'm looking for...</label>
+          <select id="looking-for">
+            <option value="" disabled selected>Select...</option>
+            <option value="internship">Internship</option>
+            <option value="full-time">Full-time</option>
+          </select>
+
+          <label for="starting-in">Starting in...</label>
+          <select id="starting-in">
+            <option value="" disabled selected>Select...</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+
+          <label>
+            <input type="checkbox" id="us-work-authorization">
+            I'm legally authorized to work in the U.S.
+          </label>
+
+          <button class="free-profile-card card-box1 card-get-button">Register</button>
+        </form>
+
+        <h4>The Rules</h4>
+        <ol>
+          <li>This contest is for individuals; teams are not allowed.</li>
+          <li>Any competitor found cheating will be disqualified.</li>
+          <li>By participating, you agree to share your contest results with sponsor companies.</li>
+          <li>If interested in job opportunities, you agree to be considered by sponsor companies.</li>
+          <li>Participants from certain countries are not eligible due to legal restrictions.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include("partials/footer.ejs") %>
+

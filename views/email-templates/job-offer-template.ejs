@@ -1,0 +1,28 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <h2>Congratulations! Your Proposal for <%= job.title %> Has Been Accepted</h2>
+    
+    <p>Hi <%= freelancer.first_name %>,</p>
+
+    <p>We are excited to inform you that your proposal for the project <strong>"<%= job.title %>"</strong> has been accepted! 🎉</p>
+
+    <p>You have received a job offer for this project. Please log in to your account to review the details and accept the offer at your earliest convenience.</p>
+
+    <h3>Project Details:</h3>
+    <ul>
+        <li><strong>Project Title:</strong> <%= job.title %></li>
+        <li><strong>Client:</strong> <%= client.full_name %></li>
+        <li><strong>Deadline:</strong> <%= hires.deadline %></li>
+        <li><strong>Budget:</strong> $2</li> 
+        <!-- Add the budget column in the hires table to render the budget dyanamically -->
+    </ul>
+
+    <p>We’re confident that your skills and expertise will make a great contribution to this project, and we look forward to seeing your amazing work.</p>
+
+    <p>If you have any questions, feel free to reach out through the messaging system, and don’t forget to review the terms before accepting the offer.</p>
+
+    <p><a href="https://localhost:3000/signin" style="color: #1a73e8; text-decoration: none;">Log in here</a></p>
+
+    <br>
+
+    <p>Best regards,<br>SkillMela Team</p>
+</div>

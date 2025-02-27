@@ -1,0 +1,330 @@
+</main>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Freelancer</h4>
+                <ul>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contests</a></li>
+                    <li><a href="#">Freelancers</a></li>
+                    <li><a href="#">Enterprise</a></li>
+                    <li><a href="#">Membership</a></li>
+                    <li><a href="#">Project Management</a></li>
+                    <li><a href="#">Local Jobs</a></li>
+                    <li><a href="#">Photo Anywhere</a></li>
+                    <li><a href="#">Showcase</a></li>
+                    <li><a href="#">API for Developers</a></li>
+                    <li><a href="#">Get Verified</a></li>
+                    <li><a href="#">Desktop App</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">How it Works</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Investor</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Stories</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Awards</a></li>
+                    <li><a href="#">Press Releases</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Terms</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                    <li><a href="#">Code of Conduct</a></li>
+                    <li><a href="#">Fees and Charges</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Partners</h4>
+                <ul>
+                    <li><a href="#">Alok Thakur</a></li>
+                    <li><a href="#">Tanmoy Paul</a></li>
+                    <li><a href="#">Sukumar Dangar</a></li>
+                    <li><a href="#">Vishal Pandey</a></li>
+                    <li><a href="#">Swati Pandit</a></li>
+                    <li><a href="#">Tirtha Mukherjee</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-network">
+                <!-- <div class="item1">
+                    <img class="nav-logo3" src="./image/logo.png">
+                    <h1>Built with ❤️ in India for the world</h1>
+                </div> -->
+                <h4>Stay Connected</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-lyouTub"></i></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+// DROPDOWN
+    function toggleDropdown() {
+        document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-pic')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+// NAVBAR RESPONSIVENESS 
+
+    const res_toggleBtn = document.querySelector('.active-toggle_btn')
+    const res_toggleBtnIcon = document.querySelector('.active-toggle_btn i')
+    const res_dropDownMenu = document.querySelector('.active-dropdown_menu')
+
+    res_toggleBtn.onclick = function() {
+        res_dropDownMenu.classList.toggle('open')
+        const res_isOpen = res_dropDownMenu.classList.contains('open')
+
+        res_toggleBtnIcon.classList = res_isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+    }
+
+// compete and contest page
+        // Example of adding interactivity if needed later
+    document.querySelector('.register-now').addEventListener('click', () => {
+        alert('You have registered for the contest!');
+    });
+
+    // Cover Photo Modal Functions
+    function showCoverModal() {
+        document.getElementById('coverModal').style.display = 'block';
+    }
+
+    function hideCoverModal() {
+        document.getElementById('coverModal').style.display = 'none';
+    }
+
+    // Profile Photo Modal Functions
+    function showProfileModal() {
+        document.getElementById('profileModal').style.display = 'block';
+    }
+
+    function hideProfileModal() {
+        document.getElementById('profileModal').style.display = 'none';
+    }
+    
+    //MANAGE-PORTFOLIO
+    function openForm() {
+        document.getElementById("portfolioForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("portfolioForm").style.display = "none";
+    }
+
+    function toggleFields() {
+        const contentType = document.querySelector('input[name="contentType"]:checked').value;
+        
+        document.getElementById('codeSampleField').style.display = contentType === 'code' ? 'block' : 'none';
+        document.getElementById('articleField').style.display = contentType === 'article' ? 'block' : 'none';
+        document.getElementById('uploadField').style.display = ['image', 'video', 'audio', 'others'].includes(contentType) ? 'block' : 'none';
+    }
+
+//freelancing
+    function changeCategory(category) {
+        window.location.href = `/freelancing?category=${category}`; // Navigates to different category
+    }
+    
+//social page
+
+// Toggle sub-sidebar visibility
+function toggleSubSidebar(subSidebarId) {
+    const subSidebar = document.getElementById(subSidebarId);
+    subSidebar.classList.add('active');
+}
+
+// Close sub-sidebar and show the main sidebar
+function closeSubSidebar() {
+    const subSidebars = document.querySelectorAll('.sub-sidebar');
+    subSidebars.forEach(sub => sub.classList.remove('active'));
+}
+
+// Perform search and display results
+function performSearch() {
+    const query = document.getElementById('searchInput').value;
+    const searchResults = document.getElementById('searchResults');
+    searchResults.innerHTML = `<p>You searched for: <strong>${query}</strong></p>`;
+}
+// Toggle the right sidebar (Next)
+function toggleNextSidebar() {
+    const nextSidebar = document.getElementById('nextSidebar');
+    const mainSidebar = document.querySelector('.sidebar');
+
+    if (nextSidebar.style.display === 'none' || nextSidebar.style.display === '') {
+        nextSidebar.style.display = 'flex'; // Show the right sidebar
+        mainSidebar.style.display = 'none'; // Hide the left sidebar
+    } else {
+        nextSidebar.style.display = 'none'; // Hide the right sidebar
+        mainSidebar.style.display = 'flex'; // Show the left sidebar
+    }
+}
+
+// Other sidebar toggles (search, notifications, etc.) remain the same
+// Function to show the Edit Profile form
+function showEditProfileForm() {
+    document.getElementById('editProfileForm').style.display = 'block';
+    document.getElementById('privacySettings').style.display = 'none'; // Hide the privacy settings if it's open
+}
+
+// Function to show the Account Privacy Settings form
+function showPrivacySettings() {
+    document.getElementById('privacySettings').style.display = 'block';
+    document.getElementById('editProfileForm').style.display = 'none'; // Hide the profile form if it's open
+}
+
+// Function to handle the submission of the profile edit form
+function submitEditProfile() {
+    const profileForm = document.getElementById('profileForm');
+    const formData = new FormData(profileForm);
+
+    // Collect and log the data (you can handle the data submission here)
+    console.log('Profile picture:', formData.get('profilePic'));
+    console.log('First Name:', formData.get('firstName'));
+    console.log('Last Name:', formData.get('lastName'));
+    console.log('Username:', formData.get('username'));
+    console.log('Location:', formData.get('location'));
+    console.log('Short Bio:', formData.get('shortBio'));
+    console.log('Full Bio:', formData.get('fullBio'));
+    console.log('Skills:', formData.get('skills'));
+    console.log('Languages:', formData.get('languages'));
+
+    alert('Profile updated successfully!');
+
+    // Optionally reset the form after submission
+    profileForm.reset();
+}
+// Function to show the Edit Profile form
+function showEditProfileForm() {
+    document.getElementById('editProfileForm').style.display = 'block';
+    document.getElementById('privacySettings').style.display = 'none'; // Hide the privacy settings
+    closeSubSidebar(); // Close the settings sidebar
+}
+
+// Function to show the Account Privacy Settings form
+function showPrivacySettings() {
+    document.getElementById('privacySettings').style.display = 'block';
+    document.getElementById('editProfileForm').style.display = 'none'; // Hide the edit profile form
+    closeSubSidebar(); // Close the settings sidebar
+}
+
+// Function to close the settings sidebar
+function closeSubSidebar() {
+    document.getElementById('settingsSidebar').style.display = 'none';
+}
+
+// Function to open the settings sidebar
+function openSubSidebar() {
+    document.getElementById('settingsSidebar').style.display = 'block';
+}
+// Function to handle Edit Profile form submission
+function submitEditProfile() {
+    // You can add your form submission logic here (e.g., AJAX call or form validation)
+    alert('Profile updated successfully!'); // This is just for demonstration
+
+    // Hide the Edit Profile form after submission
+    document.getElementById('editProfileForm').style.display = 'none';
+}
+
+// Function to handle Account Privacy form submission (if needed)
+function submitPrivacySettings() {
+    // Add submission logic if needed
+    alert('Privacy settings updated!'); // For demonstration
+
+    // Hide the Privacy Settings form after submission
+    document.getElementById('privacySettings').style.display = 'none';
+}
+
+// Function to toggle like state
+function toggleLike(button) {
+    button.classList.toggle('active'); // Toggle blue color on like
+    let likesCount = button.closest('.post-actions').nextElementSibling.querySelector('.likes-count');
+    let currentLikes = parseInt(likesCount.textContent.split(' ')[0]);
+    likesCount.textContent = (button.classList.contains('active') ? currentLikes + 1 : currentLikes - 1) + ' Likes';
+}
+
+// Function to show/hide comment box
+function toggleCommentBox(button) {
+    let commentBox = button.closest('.post-container').querySelector('.comment-box');
+    commentBox.style.display = commentBox.style.display === 'none' ? 'block' : 'none';
+}
+
+// Function to post a comment
+function postComment() {
+    let commentBox = document.querySelector('.comment-box');
+    let commentText = commentBox.querySelector('textarea').value;
+    if (commentText) {
+        let commentsList = commentBox.querySelector('.comments-list');
+        let newComment = document.createElement('div');
+        newComment.className = 'comment';
+        newComment.innerHTML = `<strong>You:</strong> ${commentText}`;
+        commentsList.appendChild(newComment);
+        commentBox.querySelector('textarea').value = ''; // Clear the textarea
+    }
+}
+
+// Function to generate a share link
+function sharePost(button) {
+    let postLink = 'https://example.com/post/123'; // Example post link
+    navigator.clipboard.writeText(postLink).then(() => {
+        alert('Post link copied to clipboard!');
+        button.classList.add('active'); // Change button color to blue
+    });
+}
+function toggleSubSidebar(id) {
+    // Close all sub-sidebars first
+    let subSidebars = document.querySelectorAll('.sub-sidebar');
+    subSidebars.forEach(subSidebar => {
+        subSidebar.classList.remove('active');
+    });
+
+    // Open the selected sub-sidebar
+    let selectedSidebar = document.getElementById(id);
+    if (selectedSidebar) {
+        selectedSidebar.classList.add('active');
+    }
+}
+
+function closeSubSidebar() {
+    // Close any open sub-sidebar
+    let subSidebars = document.querySelectorAll('.sub-sidebar');
+    subSidebars.forEach(subSidebar => {
+        subSidebar.classList.remove('active');
+    });
+}
+
+
+
+
+    </script>
+    
+</body>
+</html>

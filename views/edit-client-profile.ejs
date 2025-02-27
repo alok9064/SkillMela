@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMela</title>
+    <link rel="stylesheet" href="/styles/edit-client-profile.css">
+</head>
+<body>
+    <section class="edit-cl-profile-section">
+        <form action="/client-details" method="POST" class="edit-cl-form">
+            <!-- Personal Info -->
+            <div class="edit-cl-section">
+                <h2 class="edit-cl-heading">Personal Info</h2>
+                <div class="edit-cl-input-group">
+                    <label for="full_name" class="edit-cl-label">Full Name</label>
+                    <input type="hidden" name="client_id" value="<%= client_profile.client_id %>">
+                    <input type="text" name="full_name" value="<%= client_profile ? client_profile.full_name : '' %>" class="edit-cl-input" required>
+                </div>
+                
+                <div class="edit-cl-input-group">
+                    <label for="pronoun" class="edit-cl-label">Preferred Pronoun</label>
+                    <select name="pronoun" value="<%= client_profile ? client_profile.pronoun : '' %>" class="edit-cl-select">
+                        <option value="He/him">He/him</option>
+                        <option value="She/her">She/her</option>
+                        <option value="Others">Others</option>
+                        <option value="Preferred not to say">Preferred not to say</option>
+                    </select>
+                </div>
+
+                <div class="edit-cl-input-group">
+                    <label for="bio" class="edit-cl-label">Bio/Overview</label>
+                    <textarea name="bio" class="edit-cl-textarea"><%= client_profile ? client_profile.bio : '' %></textarea>
+                </div>
+
+                <div class="edit-cl-input-group"></div>
+                    <label for="about" class="edit-cl-label">About</label>
+                    <textarea name="about" class="edit-cl-textarea"><%= client_profile ? client_profile.about : '' %></textarea>
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label class="edit-cl-label">Location</label>
+                    <input type="text" name="location_city" value="<%= client_profile ? client_profile.location_city : '' %>" placeholder="City" class="edit-cl-input-inline">
+                    <input type="text" name="location_state" value="<%= client_profile ? client_profile.location_state : '' %>" placeholder="State" class="edit-cl-input-inline">
+                    <input type="text" name="location_country" value="<%= client_profile ? client_profile.location_country : '' %>" placeholder="Country" class="edit-cl-input-inline">
+                    <input type="text" name="full_address" value="<%= client_profile ? client_profile.full_address : '' %>" placeholder="Full Address" class="edit-cl-input">
+                </div>
+            </div>
+        
+            <!-- Business Info -->
+            <div class="edit-cl-section">
+                <h2 class="edit-cl-heading">Business Info</h2>
+                <div class="edit-cl-input-group">
+                    <label for="company_name" class="edit-cl-label">Company Name</label>
+                    <input type="text" name="company_name" value="<%= client_profile ? client_profile.company_name : '' %>" class="edit-cl-input">
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="business_type" class="edit-cl-label">Business Type</label>
+                    <input type="text" name="business_type" value="<%= client_profile ? client_profile.business_type : '' %>" class="edit-cl-input">
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="company_website" class="edit-cl-label">Company Website</label>
+                    <input type="url" name="company_website" value="<%= client_profile ? client_profile.company_website : '' %>" class="edit-cl-input">
+                </div>
+            </div>
+        
+            <!-- Project Details -->
+            <div class="edit-cl-section">
+                <h2 class="edit-cl-heading">Project Details</h2>
+                <div class="edit-cl-input-group">
+                    <label for="project_types" class="edit-cl-label">Type of Projects</label>
+                    <select name="project_types[]" multiple class="edit-cl-select"></select>
+                        <option value="Website Development">Website Development</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="Content Writing">Content Writing</option>
+                        <option value="Graphic Design">Graphic Design</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="SEO">SEO</option>
+                    </select>
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="freelancer_categories" class="edit-cl-label">Categories of Freelancers Needed</label>
+                    <select name="freelancer_categories[]" multiple class="edit-cl-select">
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="Mobile Developer">Mobile Developer</option>
+                        <option value="Content Writer">Content Writer</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Marketing Expert">Marketing Expert</option>
+                    </select>
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="expected_project_size" class="edit-cl-label">Expected Project Size</label>
+                    <select name="expected_project_size" class="edit-cl-select">
+                        <option value="Small tasks">Small tasks</option>
+                        <option value="Medium sized projects">Medium sized projects</option>
+                        <option value="Long term contracts">Long term contracts</option>
+                        <option value="Miscellaneous">Miscellaneous</option>
+                    </select>
+                </div>
+            </div>
+        
+            <!-- Contact Info -->
+            <div class="edit-cl-section">
+                <h2 class="edit-cl-heading">Contact Info</h2>
+                <div class="edit-cl-input-group">
+                    <label for="email" class="edit-cl-label">Email</label>
+                    <input type="email" name="email" value="<%= client_profile ? client_profile.email : '' %>" class="edit-cl-input" required>
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="phone" class="edit-cl-label">Phone</label>
+                    <input type="tel" name="phone" value="<%= client_profile ? client_profile.phone : '' %>" class="edit-cl-input">
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="whatsapp" class="edit-cl-label">WhatsApp</label>
+                    <input type="tel" name="whatsapp" value="<%= client_profile ? client_profile.whatsapp : '' %>" class="edit-cl-input">
+                </div>
+            </div>
+        
+            <!-- Social Media URLs -->
+            <div class="edit-cl-section">
+                <h2 class="edit-cl-heading">Social Media URLs</h2>
+                <div class="edit-cl-input-group">
+                    <label for="linkedin" class="edit-cl-label">LinkedIn</label>
+                    <input type="url" name="linkedin" value="<%= client_profile ? client_profile.linkedin : '' %>" class="edit-cl-input">
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="instagram" class="edit-cl-label">Instagram</label>
+                    <input type="url" name="instagram" value="<%= client_profile ? client_profile.instagram: '' %>" class="edit-cl-input">
+                </div>
+        
+                <div class="edit-cl-input-group">
+                    <label for="twitter" class="edit-cl-label">Twitter</label>
+                    <input type="url" name="twitter" value="<%= client_profile ? client_profile.twitter : '' %>" class="edit-cl-input">
+                </div>
+            </div>
+        
+            <!-- Submit Button -->
+            <div class="edit-cl-input-group">
+                <button type="submit" class="edit-cl-btn">Submit</button>
+                <button type="button" class="button cancel-button" onclick="window.location.href='/client-profile/<%= client_profile.client_id %>'">Cancel</button>
+            </div>
+        </form>
+        
+    </section>
+</body>
+</html>

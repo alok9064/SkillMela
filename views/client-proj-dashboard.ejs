@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/client-proj-dashboard.css">
+</head>
+<header>
+    <nav class="navbar">
+        <div class="nav-item1">
+            <a href="/client-home/<%= client.id %>"><h2>Skill<span style="color: #6528F7;">Mela</span></h2></a>
+        </div>
+        <!-- /* From Uiverse.io by LightAndy1 */  -->
+        <div class="group">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+            <g>
+              <path
+                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+              ></path>
+            </g>
+          </svg>
+          <input class="input" type="search" placeholder="Search" />
+        </div>
+  
+        <div class=" nav-item2">
+            <a href="/job/<%= client.id %>">Jobs</a>
+            <a href="/talents">Talents</a>
+            <!-- <a href="/mentorship">Projects</a> -->
+            <a href="/messaging">Messaging</a>
+            <a href="/client-social">Social</a>
+        </div>
+        
+        
+          <% if (typeof client !== 'undefined' && client) { %>
+              <div class="nav-item3">
+                <% if (client.profile_photo === null) { %>
+                  <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } else { %>
+                  <img src="<%= client.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } %>  
+                  <div id="dropdownMenu" class="dropdown-content">
+                      <a href="/client-profile/<%= client.id %>">Profile</a>
+                      <a href="/client-settings/<%= client.id %>">Settings</a>
+                      <a href="/client-proj-dashboard/<%= client.id %>">Project Dashboard</a>
+                      <a href="/logout">Logout</a>
+                  </div>
+              </div>
+          <% } else { %>
+            <div class="nav-item2-sign">
+              <a class="nav-item2-signin" href="/signin">Login</a>
+              <a class="nav-item2-signup" href="/signup">Sign Up</a>
+            </div>
+          <% } %>
+    </nav>
+</header>
+<body>
+    
+    <div class="dashboard-container">
+        <h1>Project <span style="color: #6528F7;">Dashboard</span> </h1>
+        
+        <!-- Project Info Section -->
+        <div class="project-info">
+            <div class="project-heading">
+                <h2 style="color: #6528F7; text-align: center;"><%= project.title %></h2>
+            </div>
+            <div class="project-info-grid">
+                <div class="project-info-section">
+                    <p><strong>Client:</strong> <%= client.full_name %></p>
+                    <p><strong>Freelancer:</strong> <%= freelancer.first_name %> <%= freelancer.last_name %></p>
+                    <p><strong>Budget:</strong> <%= proposal.bid_amount %></p>
+                    <p><strong>Status:</strong> <%= project.status %></p>
+                    <p><strong>Due Date:</strong> <%= project.due_date %></p>
+                </div>
+    
+                <div class="cl-pr-rating-section">
+                    <p><strong>Rate the work of <span style="color: #6528F7;"><%= freelancer.first_name %></span></strong></p>
+                    <form action="/rate/<%= freelancer.user_id %>" method="POST" id="ratingForm">
+                        <input type="hidden" name="raterId" value="<%= client.client_id %>"> <!-- rater's ID -->
+                        <input type="hidden" id="selectedRating" name="rating" value="<%= userRating %>"> <!-- Rating value -->
+        
+                        <div class="rating">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+        
+                        <button type="submit">Rate</button>
+                    </form>
+                    <p><strong>Write a review for <span style="color: #6528F7;"><%= freelancer.first_name %></span></strong></p>
+                    <form action="/review/<%= freelancer.user_id %>" id="reviewForm">
+                        <textarea name="reviewId" id="" class="cl-pr-review-input"></textarea>
+                        <button type="submit">Post</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+         <!-- Milestones Section -->
+         <div class="milestones">
+            <h3>Milestones</h3>
+            <br>
+            <ul>
+                <% milestones.forEach(milestone => { %>
+                    <li class="milestone-item">
+                        <div class="milestone-header">
+                            <strong><%= milestone.name %></strong>
+                            <span>Due: <%= milestone.due_date %></span>
+                        </div>
+                        <!-- Progress Bar for status -->
+                        <div class="status-tracker">
+                            <div class="track-bar">
+                                <div class="progress <%= milestone.status === 'completed' ? 'progress-completed' : milestone.status === 'in progress' ? 'progress-in-progress' : 'progress-not-started' %>">
+                                    <span><%= milestone.status %></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </li>
+                <% }); %>
+                <div class="add-milestone">
+                    <h3>Add a New Milestone</h3>
+                    <br>
+                    <form action="/milestone/add" method="post" class="add-milestone-form">
+                        <input type="hidden" name="project_id" value="<%= project.id %>">
+                        <label for="milestone-name">Milestone Name:</label>
+                        <input type="text" name="milestone_name" id="milestone-name" required>
+                        <label for="due-date">Due Date:</label>
+                        <input type="date" name="due_date" id="due-date" required>
+                        <button type="submit" class="btn-add">Add Milestone</button>
+                    </form>
+                </div>
+            </ul>
+        </div>
+
+
+        <form action="https://www.escrow.com/checkout" method="post" target="_blank">
+            <input type="hidden" name="type" value="domain_name">
+            <input type="hidden" name="non_initiator_email" value="rishu.pandey.2.5.8kgf@gmail.com">
+            <input type="hidden" name="non_initiator_id" value="3365223">
+            <input type="hidden" name="non_initiator_role" value="seller">
+            <input type="hidden" name="title" value="Gig Charge">
+            <input type="hidden" name="currency" value="USD">
+            <input type="hidden" name="domain" value="SkillMela">
+            <input type="hidden" name="price" value="<%= proposal.bid_amount.replace('$', '') %>">
+            <input type="hidden" name="concierge" value="false">
+            <input type="hidden" name="with_content" value="false">
+            <input type="hidden" name="inspection_period" value="1">
+            <input type="hidden" name="fee_payer" value="seller">
+            <input type="hidden" name="return_url" value="">
+            <input type="hidden" name="button_types" value="both">
+            <input type="hidden" name="auto_accept" value="">
+            <input type="hidden" name="auto_reject" value="">
+            <input type="hidden" name="item_key" value="undefined">
+
+            <button class="EscrowButtonPrimary" type="submit">Pay Now</button>
+            <img src="https://t.escrow.com/1px.gif?name=bin&price=5.65&title=Gig%20Charge&user_id=3365223" style="display: none;">
+        </form>
+
+        
+        
+    </div>
+
+    <script>
+        // DROPDOWN
+        function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("show");
+        }
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-pic')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // JavaScript to handle star rating click
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function () {
+                const rating = this.getAttribute('data-value');
+                document.getElementById('selectedRating').value = rating;
+
+                // Highlight stars based on the rating selected
+                document.querySelectorAll('.star').forEach(star => {
+                    star.style.color = (star.getAttribute('data-value') <= rating) ? '#f7d106' : '#ccc';
+                });
+            });
+        });
+      </script>
+
+</body>
+</html>

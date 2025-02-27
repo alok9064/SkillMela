@@ -1,0 +1,888 @@
+
+
+.free-profile-section {
+    padding-top: 90px;
+    color: black;
+    background: linear-gradient(60deg, #dccefd, #F6F8FA);
+}
+
+/* ......Cover photo....... */
+.free-profile-item1{
+    height: auto;
+    width: auto;
+    margin: 0 150px 30px 150px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+.free-profile-item1 img{
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.free-profile-item2{
+    height: auto;
+    width: auto;
+    margin: 0 150px 15px 150px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr;
+    gap: 15px;
+}
+
+
+/* ........left card section........ */
+
+.free-profile-card {
+    max-height: 801px;
+    width: auto;
+    border: 0.5px solid #cbc9c9;
+    border-radius: 15px;
+    background-color: white;
+}
+
+
+/* box1 */
+.card-box1{
+    width: 100%;
+    height: auto;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbc9c9;
+}
+.free-profile-card .card-box1 .card-border-top {
+    width: auto;
+    height: 10px;
+    background: #cbb5fc;
+    margin: 0 70px;
+    border-radius: 0px 0px 15px 15px;
+}
+.card-person-information h1{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    
+}
+.card-person-information h2 {
+    font-size: 15px;
+    font-weight: 200;
+    color: #575757;
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+}
+.card-person-information h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+}
+.free-profile-card .card-box1 .img {
+    width: 70px;
+    height: 80px;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 25px;
+}
+.free-profile-card .card-box1 img {
+    width: 70px;
+    height: 80px;
+    border-radius: 15px;
+    margin: auto;
+}
+.free-profile-card .card-get{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.free-profile-card .card-box1 .card-get-button {
+    height: auto;
+    width: 100%;
+    margin: 10px 15px 10px 15px ;
+    text-align: center;
+    padding: 8px 25px;
+    border-radius: 30px;
+    border: none;
+    background-color: #6528f7;
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.free-profile-card .card-box1 .card-get-button:hover {
+    transform: scale(1.03);
+    background-color: #966bfa;
+    color: black;
+}
+.free-profile-card .card-box1 .card-get-button:active{
+    transform: scale(0.9);
+}
+.free-profile-card .card-get .favorite-reaction{
+    color: #575757;
+}
+.free-profile-card .card-get p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+}
+
+
+/* box2 */
+.card-box2{
+    height: auto;
+    width: auto;
+    padding: 15px;
+}
+.card-profile-items{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .9rem;
+}
+.profile-item-def{
+    width: 66%;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.profile-item-data{
+    margin-left: auto;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+
+/* box3 */
+.card-box3{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px 15px 15px 5px;
+    border-top: 0.5px solid #cbc9c9;
+    border-bottom: 0.5px solid #cbc9c9;
+}
+.card-box3-View-Website{
+    font-weight: 400;
+}
+.card-box3-View-Website a{
+    color: #4677f3;
+    text-decoration: none;
+}
+.card-box3-View-Website a:hover{
+    text-decoration: underline;
+}
+.card-box3-View-linkedin{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 0.5px solid #0274b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    text-align: right;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.card-box3-View-linkedin i{
+    height: 100%;
+    width: 100%;
+    color: #0274b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-box3-View-linkedin:hover{
+    background-color: #0274b3;
+}
+.card-box3-View-linkedin i:hover{
+    color: white;
+}
+
+
+/* box4 */
+/* Share buttons */
+.card-box4{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tooltip-container {
+    background: rgb(3, 169, 244);
+    background: linear-gradient(138deg, rgb(0, 0, 0) 15%, rgb(0, 31, 46) 65%);
+    position: relative;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 0.7em 0.7em;
+    border-radius: 50px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.tooltip-container:hover {
+    background: #fff;
+    transition: all 0.9s;
+}
+.tooltip-container .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: #fff;
+    transition: all 0.2s;
+}
+.tooltip-container:hover .text {
+    fill: rgb(0, 0, 0);
+    transition: all 0.9s;
+}
+
+/* Inicio do tooltip twitter */
+.tooltip1 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    background: #000000;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip1 {
+    top: 150%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    border-radius: 50px;
+    transform: translate(-50%, -5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-container:hover .tooltip1:hover {
+    background: #03a9f4;
+    fill: #fff;
+}
+/* Fim do tooltip twitter */
+
+/* Inicio do tooltip facebook */
+.tooltip2 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip2 {
+    top: -120%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(-50%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip2:hover {
+    background: #001722;
+    fill: #fff;
+}
+/* Fim do tooltip facebook */
+
+/* Inicio do tooltip whatsApp */
+.tooltip3 {
+    position: absolute;
+    top: 100%;
+    left: 60%;
+    transform: translateX(80%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip3 {
+    top: 10%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(85%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-container:hover .tooltip3:hover {
+    background: #1db954;
+    fill: #000000;
+}
+/* Fim do tooltip whatsApp */
+
+/* Inicio do tooltip Discord */
+.tooltip4 {
+    position: absolute;
+    top: 100%;
+    left: -190%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip4 {
+    top: 10%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-container:hover .tooltip4:hover {
+    background: #8c9eff;
+    fill: #fff;
+}
+/* Fim do tooltip Discord */
+
+/* Inicio do tooltip pinterest */
+.tooltip5 {
+    position: absolute;
+    top: 100%;
+    left: -145%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip5 {
+    top: -78%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-container:hover .tooltip5:hover {
+    background: #bd081c;
+    fill: #fff;
+}
+/* Fim do tooltip pinterest */
+
+/* Inicio do tooltip dribbble */
+.tooltip6 {
+    position: absolute;
+    top: 100%;
+    left: 35%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip6 {
+    top: -79%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-container:hover .tooltip6:hover {
+    background: #ea4c89;
+    fill: #fff;
+}
+/* Fim do tooltip dribbble */
+
+/* Inicio do tooltip github */
+.tooltip7 {
+    position: absolute;
+    top: 100%;
+    left: 39%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip7 {
+    top: 104%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-container:hover .tooltip7:hover {
+    background: #000;
+    fill: #fff;
+}
+/* Fim do tooltip github */
+
+/* Inicio do tooltip reddit */
+.tooltip8 {
+    position: absolute;
+    top: 100%;
+    left: -150%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip8 {
+    top: 101%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-container:hover .tooltip8:hover {
+    background: #ff4500;
+    fill: #fff;
+}
+/* Fim do tooltip reddit */
+
+/* Inicio do tooltip fixo */
+.tooltip9 {
+    position: absolute;
+    top: 0;
+    left: -115%;
+    opacity: 0;
+    visibility: hidden;
+    width: 150px;
+    height: 150px;
+    z-index: -1;
+}
+
+.tooltip-container:hover .tooltip9 {
+    /* top: -110%; */
+    opacity: 1;
+    visibility: visible;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+/* box5 */
+.card-box5{
+    height: auto;
+    width: auto;
+    padding: 15px;
+    border-top: 0.5px solid #cbc9c9;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.card-box5 .card-box5-item1{
+    height: auto;
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.card-box5-item1 .bids-free-member{
+    width: auto;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+}
+.card-box5-item1 .bids-insights{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    text-align: right;
+    text-decoration: none;
+    color: rgb(246, 82, 12);
+}
+.card-box5 .card-box5-item2{
+    font-size: 17px;
+    font-weight: 400;
+    color: #333333;
+}
+.card-box5 .card-box5-item2 .span1{
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+}
+
+
+
+/* .....Right side section..... */
+
+.free-profile-description{
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border: 0.5px solid #cbc9c9;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* description */
+.free-profile-description-project-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.free-profile-description-project-name h1{
+    font-size: 30px;
+    font-weight: 600;
+}
+.free-profile-description-project-name h2{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #3c3c3c;
+}
+.free-profile-description-project-name p{
+    min-height: 50px;
+    margin-top: 20px;
+    color: #4a4a4a;
+}
+
+/* ......Overview...... */
+.free-profile-description .free-profile-Overview{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+/* skills */
+.free-profile-description-skills{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 500px;
+    width: auto;
+    min-height: 50px;
+    margin-top: 20px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.free-profile-description-skills h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.free-about-techstack{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+.free-about-techstack li{
+    height: auto;
+    width: auto;
+    margin: 0 10px 10px 0;
+    padding: 4px 12px;
+    border: 0.5px solid #6e6d6d;
+    border-radius: 30px;
+    display: flex;
+    text-decoration: none;
+    background-color: #f5f5f0;
+}
+.free-about-techstack li p{
+    font-size: 15px;
+    height: auto;
+    width: auto;
+    text-decoration: none;
+    color: #6e6d6d;
+    background: transparent;
+}
+
+/* About */
+.free-profile-description-about{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.free-profile-description-about h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.free-profile-description-about p{
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+
+/* Work Terms */
+.free-profile-description-work-terms{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.free-profile-description-work-terms h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.free-profile-description-work-terms p{
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+
+/* attachment */
+.free-profile-description-attachment{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.free-profile-description-attachment h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.free-profile-description-attachment h1 span{
+    color: #525151;
+}
+.free-profile-description-attachment-pdf{
+    display: flex;
+    justify-content: flex-start;
+    border-radius:10px;
+}
+.free-profile-description-attachment-pdf i{
+    height: auto;
+    width: auto;
+    font-size: 70px;
+    color: #afafaf;
+}
+
+
+/* .....Feedbacks..... */
+.free-profile-description .free-profile-feedbacks{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0 10px 0;
+}
+.free-profile-description-feedbacks{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+}
+.free-profile-description-feedbacks h1{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: #6e6d6d;
+}
+.free-profile-description-feedbacks ul{
+    display: flex;
+    flex-direction: column;
+}
+.free-profile-description-feedbacks .free-feedback-item li{
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.free-profile-description-feedbacks .free-feedback-item li img{
+    height: 50px;
+    width: 50px;
+}
+.free-profile-description-feedbacks .free-feedback-item li .free-feedback-comment{
+    margin-left: 15px;
+}
+.free-profile-description-feedbacks .free-feedback-item li h1{
+    color: #6e6d6d;
+    font-size: 15px;
+    margin: 0;
+    font-weight: 400;
+}
+.free-profile-description-feedbacks .free-feedback-item li h1 a{
+    font-size: 20px;
+    font-weight: 600;
+    color: #0274b3;
+    text-decoration: none;
+}
+.free-profile-description-feedbacks .free-feedback-item li h1 a:hover{
+    text-decoration: underline;
+}
+.free-profile-description-feedbacks .free-feedback-item li p{
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+.free-profile-description-feedbacks .free-feedback-item li h2{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+.free-profile-description-feedbacks .free-feedback-item li h2 a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0;
+    color: #0274b3;
+}
+.free-profile-description-feedbacks .free-feedback-item li h2 a:hover{
+    text-decoration: underline;
+}
+
+
+
+/* ..........Media......... */
+
+@media(max-width: 1290px){
+    .free-profile-item1{
+        margin: 0 15px 30px 15px;
+    }
+    .free-profile-item2{
+        margin: 0 80px 15px 80px;
+    }
+}
+
+@media(max-width: 1260px){
+    .free-profile-item1{
+        margin: 0 50px 20px 80px;
+    }
+    .free-profile-item1 img{
+        height: 200px;
+    }
+    .free-profile-item2{
+        margin: 0 30px 15px 30px;
+    }
+}
+
+@media(max-width: 1170px){
+    .free-profile-item1{
+        margin: 0 15px 10px 15px;
+    }
+    .free-profile-item1 img{
+        height: 150px;
+    }
+    .free-profile-item2{
+        margin: 0 5px 15px 5px;
+    }
+}
+
+@media(max-width: 1111px){
+    .free-profile-card {
+        max-height: 760px;
+    }
+    .card-box5-item1 .bids-free-member{
+        font-size: 15px;
+    }
+    .card-box5-item1 .bids-insights{
+        font-size: 15px;
+    }
+    .card-box5 .card-box5-item2{
+        font-size: 15px;
+    }
+    .card-box5 .card-box5-item2 .span1{
+        font-size: 13px;
+    }
+    .card-profile-items{
+        font-size: .69rem;
+    }
+    .free-profile-item1 img{
+        height: 120px;
+    }
+}
+
+@media(max-width: 900px){
+    .free-profile-item1 img{
+        height: 0;
+        width: 0;
+    }
+    .free-profile-card {
+        max-height: 800px;
+    }
+    .free-profile-item2{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .card-profile-items{
+        font-size: .9rem;
+    }
+}

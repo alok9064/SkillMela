@@ -1,0 +1,87 @@
+.Prepare-section{
+    padding: 20px;
+    margin: 0;
+    background-color: aliceblue;
+    height: auto;
+}
+.Prepare-course-name{
+    height: auto;
+    width: auto;
+    padding: 20px 10px;
+}
+.Prepare-course-name span{
+    font-size: 25px;
+    padding: 10px 0px;
+}
+.topic-box{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-row: 1fr;
+    gap: 5px;
+}
+.topic-box .topic-box-left{
+    height: auto;
+    width: auto;
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-row: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+}
+.topic-box .topic-box-right{
+    height:auto;
+    width: auto;
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-row: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+}
+.topic-name{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 15px;
+}
+.topic-name:hover{
+    border: 0.5px solid green;
+    transition: 0.3s;
+}
+.topic-name button{
+    padding: 10px 20px;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+}
+.start-para-btn{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    height: auto;
+    width: auto;
+}
+.start-para-btn button:hover{
+    background-color:  #cc80ff;
+    color: white;
+    border: 0.5px solid green;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.topic-status{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+/* .topic-status-head h4{
+    font-size: 17px;
+} */
+.topic-status:hover{
+    border: 0.5px solid green;
+    transition: 0.3s;
+}
+.topic-status label{
+    color: blue;
+    padding-bottom: 5px;
+    cursor: pointer;
+}

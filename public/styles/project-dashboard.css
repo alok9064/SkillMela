@@ -1,0 +1,140 @@
+body {
+    font-family: 'poppins', sans-serif;
+    background: linear-gradient(60deg, #dccefd, #F6F8FA);
+    color: #333;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 0;
+}
+
+.project-info, .milestones, .communication, .submit-work {
+    background-color: white;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.project-info p {
+    margin-top: 20px;
+}
+ul {
+    list-style-type: none;
+}
+
+.message {
+    margin-bottom: 10px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: #5a22d1;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.milestones ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.milestone-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.milestone-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.status-tracker {
+    margin-top: 10px;
+}
+
+.track-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.progress {
+    height: 40px; 
+    background-color: #e0e0e0; 
+    overflow: hidden; /* Hide overflow */
+    text-align: center;
+    line-height: 8px;
+    font-size: 10px;
+    color: #fff;
+}
+
+.progress-completed {
+    width: 100%;
+    background-color: #6528F7; /* Green for completed */
+}
+
+.progress-in-progress {
+    width: 50%;
+    background-color: #ffc107; /* Yellow for in progress */
+}
+
+.progress-not-started {
+    width: 0%;
+    background-color: #f44336; /* Red for not started */
+}
+
+.update-status-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.update-status-form label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.update-status-form select {
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.btn-save {
+    padding: 5px 10px;
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    background-color: #4f1ac2;
+}

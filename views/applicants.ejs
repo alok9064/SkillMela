@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillMela</title>
+  <!-- <link rel="stylesheet" href="/styles/layout.css"> -->
+  <link rel="stylesheet" href="/styles/applicants.css"> <!-- CSS file for styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<header>
+  <nav class="navbar">
+      <div class="nav-item1">
+          <a href="/client-home/<%= client.id %>"><h2>Skill<span style="color: #6528F7;">Mela</span></h2></a>
+      </div>
+      <!-- /* From Uiverse.io by LightAndy1 */  -->
+      <div class="group">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+          <g>
+            <path
+              d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+            ></path>
+          </g>
+        </svg>
+        <input class="input" type="search" placeholder="Search" />
+      </div>
+
+      <div class=" nav-item2">
+          <a href="/job/<%= client.id %>">Jobs</a>
+          <a class="talentclass" href="/talents">Talents</a>
+          <!-- <a href="/mentorship">Projects</a> -->
+          <a href="/messaging">Messaging</a>
+          <a href="/client-social">Social</a>
+      </div>
+      
+      
+        <% if (typeof client !== 'undefined' && client) { %>
+            <div class="nav-item3">
+              <% if (client_profile.profile_photo === null) { %>
+                <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } else { %>
+                <img src="<%= client_profile.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } %>  
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="/client-profile/<%= client.id %>">View Profile</a>
+                    <a href="/client-settings/<%= client.id %>">Settings</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        <% } else { %>
+          <div class="nav-item2-sign">
+            <a class="nav-item2-signin" href="/signin">Login</a>
+            <a class="nav-item2-signup" href="/signup">Sign Up</a>
+          </div>
+        <% } %>
+  </nav>
+</header>
+<body>
+    
+
+<section class="free-section">
+    <div class="free">
+        <!-- .....Head item..... -->
+        <div class="free-item1 free-item">
+            <h1>Review your <span style="color: #6528F7;">Proposals</span></h1>
+            <h2>We found <span><%= job.proposals %> </span>proposals for <span>"<%= job.title %>"</span></h2>
+        </div>
+        <!-- .....Search Option..... -->
+        <div class="free-item2 free-item">
+            <input placeholder="Search Freelancers..." type="text" name="text" class="input">
+            <button><i class="fa-solid fa-sliders"></i> <span>Filter</span> <i class="fa-solid fa-angle-up"></i></button>
+        </div>
+        <!-- .....Filter Aliments Hidden..... -->
+        <!-- <div class="filter-aliments" aria-hidden="true">
+aria-expanded="false"
+        </div> -->
+
+
+        <!-- .....profiles...... -->
+        <ul class="free-item3 free-item">
+            <!-- .....profile1...... -->
+            <% if (proposals.length > 0) { %>
+                <% proposals.forEach(proposal => { %>
+                    <li class="profile1">
+                        <div class="free-profile">
+                            <div class="name-section">
+                              <% if (proposal.profile_photo === null) { %>
+                                  <img src="/images/user.jpg"  %>">
+                              <% } else { %>
+                                  <img src="<%= proposal.profile_photo %>" %>">
+                              <% } %>
+                                <!-- <a href="/find-freelancers"><img src="/images/user.jpg" alt="img"></a> -->
+                                <div class="address-section">
+                                    <a href="/find-freelancers"><h1><%= proposal.first_name %> <%= proposal.last_name %></h1></a>
+                                    <!-- Rating -->
+                                    <h2>
+                                      <strong>
+                                          <span class="stars">
+                                              <span class="full-stars" style="color: gold; font-size: 20px;"><%= generateStars(proposal.rating) %></span> <%= Math.floor(proposal.rating) %>/5 (<%= proposal.rating_count %>)
+                                          </span>
+                                      </strong>
+                                    </h2>
+                                    <h2><span><%= proposal.city %></span>, <span><%= proposal.country %></span></h2>
+                                    <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                                </div>
+                            </div>
+                            <div class="free-proposed-bid">
+                              <h4>Proposed Bid: <span style="color: #6528F7;"><%= proposal.bid_amount %>/hr</span></h4>
+                              <h4>Delivery Days: <span style="color: #6528F7;"><%= proposal.delivery_days %></span></h4>
+                            </div>
+                            <div class="get-section">
+                                <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                                <% if (job.status === 'open') { %>
+                                  <a class="get-section-button" href="/hire-confirmation/<%= proposal.user_id %>/<%= job.job_id %>">Hire</a>
+                                <% } %>
+                                
+                            </div>
+                        </div>
+                        <div class="free-about">
+                            <!-- <a class="free-about-item1" href="/find-freelancers"><img  src="/images/user.jpg" alt="img"></a> -->
+                            <div class="free-about-item2">
+                                <div class="free-about-project">
+                                    <a href="/find-freelancers">Fullstack Developer</a>
+                                    <h1><span><%= proposal.bid_amount %></span>/hr</h1>
+                                </div>
+                                <br>
+                                <h4>Proposal Letter</h4>
+                                <p><%= proposal.proposal_text%></p>
+                               
+                                <button class="read-more-btn">Read More</button>
+                                <ul class="free-about-techstack">
+                                  <li><a href="#">Programming & Development</a></li>
+                                  <li><a href="#">Programming & Software</a></li>
+                                  <li><a href="#">Angular</a></li>
+                                  <li><a href="#">API</a></li>
+                                  <li><a href="#">ASP.NET</a></li>
+                                  <li><a href="#">AWS</a></li>
+                                  <li><a href="#">Cloud Computing</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>    
+            <% } else { %>
+                <p>No proposals available for this job yet.</p>
+            <% } %>
+            <!-- .....profile2...... -->
+            
+            
+        </ul>
+    </div>
+</section>
+<script>
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const proposalText = this.previousElementSibling;
+            proposalText.classList.toggle('expanded');
+            
+            if (proposalText.classList.contains('expanded')) {
+                this.textContent = "Show Less";
+            } else {
+                this.textContent = "Read More";
+            }
+        });
+    });
+</script>
+</body>
+</html>

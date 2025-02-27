@@ -1,0 +1,251 @@
+body {
+    font-family: 'poppins', sans-serif;
+    background: linear-gradient(60deg, #dccefd, #F6F8FA);
+    color: #333;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 0;
+}
+
+.project-info, .milestones, .communication {
+    background-color: white;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.project-info {
+    display: flex;
+    flex-direction: column;
+}
+.project-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.cl-pr-rating-section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+#ratingForm {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+#ratingForm button {
+    padding: 0 16px;
+    height: 30px;
+}
+.cl-pr-review-input {
+    width: 300px;
+    height: 80px;
+    border-radius: 10px;
+}
+#reviewForm {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 1rem;
+    justify-content: center;
+    align-items: end;
+}
+.project-info p {
+    margin-top: 20px;
+}
+ul {
+    list-style-type: none;
+}
+
+.message {
+    margin-bottom: 10px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: #5a22d1;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+}
+
+/* Milestones */
+.milestones ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.milestone-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.milestone-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.status-tracker {
+    margin-top: 10px;
+}
+
+.track-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.progress {
+    height: 40px; 
+    background-color: #e0e0e0; 
+    overflow: hidden; /* Hide overflow */
+    text-align: center;
+    line-height: 8px;
+    font-size: 10px;
+    color: #fff;
+}
+
+.progress-completed {
+    width: 100%;
+    background-color: #6528F7; 
+}
+
+.progress-in-progress {
+    width: 50%;
+    background-color: #ffc107; /* Yellow for in progress */
+}
+
+.progress-not-started {
+    width: 0%;
+    background-color: #f44336; /* Red for not started */
+}
+
+
+/* Add Milestone Form */
+.add-milestone {
+    margin-top: 30px;
+}
+
+.add-milestone-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-milestone-form label {
+    margin-bottom: 5px;
+}
+
+.add-milestone-form input, .add-milestone-form button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.add-milestone-form button {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.add-milestone-form button:hover {
+    background-color: #4f1ac2;
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+.EscrowButtonPrimary.EscrowButtonPrimary {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAAALCAMAAABGfiMeAAAAolBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8ELnaCAAAANXRSTlMA95xuSysUU/vh2tWxlA4Z88Sselc1He/quriOCwbNiYFEMALm0Mm+taJnP6ZjIoRdTjp03P7kXRgAAAI+SURBVDjLhZKJkppQEEXvQ0BAZBEEHQFlUVzHZXL//9fSj1Ti1GRMTpWtJe/16faKt4EpEBqu6qoGOHpKuQbuS8GwABTJNveMDCYrAB3l8DvzFkLj/3CrA4D0zYs3BfDoDAiF5+F76CyEHtjJJ4cNjmSk6GFEjRLhnswVF2HgOAEscgJcuAdEG9F1IwVs5NsFdyVMKhvAjc4r3wQDIScBYJfYspZ3S3z7+3jJgxi6BoHPtYx01+PQxoEfgNZc9FW0kZuhPDBFyuFJTJb/9tncthBaJ4dGfFOIa4uxOIGTbLTmCmdWHMPlHILPAJqMhtQ5r7IYPX2NDF743FQoIHtNkgwIOHn6xPUmr1/NlkOAnUo5zRiVEGKFp08sa1k/5wkrqeEL38C7ZLElRWE/fa6/V7x98kmAc/Zy4iZjaHbRV9+IK57L3PX5/mo/UyggNElOM6D326e54pMPFX1usJWa4Pv9Eo53asTkQOtlfk/kYKv+5OfXE93X5AxATR9YkTxhKvUBzYw2NCHPUh8yy5XmhcoJDc7/4xs3bXHmETEvgW3VQ36WcuYIqcw266UZ7qQqZWEdXz0NkfADKBqgix76LzyWieoioi8znV74qIQd7IgOubClm8YbfLjQK6SHfuTagE32Q10CExkgXMhtKiAlO8W+Fc8D95GFNWuEyYf5l3U2sEYw6l3voEM2+x9efIU5uwC4zsay+t6L1zaE1fk21BQ4xrJXZsS7/UrHa8T+qAQ2lQXNsRJTfTK//qo/Aes/TdDnJ+8NAAAAAElFTkSuQmCC);
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+    background-color: #6528F7 !important;
+    background-repeat: no-repeat !important;
+    background-position: right 13px !important;
+    border-radius: 30px !important;
+    /* border: 1px solid #0ecb6f !important; */
+    -webkit-box-shadow: 0 2px 4px 0 hsla(0, 12%, 54%, .1) !important;
+    box-shadow: 0 2px 4px 0 hsla(0, 12%, 54%, .1) !important;
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    font-family: Open Sans, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: .4px !important;
+    line-height: 1.2 !important;
+    min-height: 40px !important;
+    padding: 8px 118px 8px 21px !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    text-transform: none !important;
+    -webkit-transition: all .1s linear !important;
+    transition: all .1s linear !important;
+    vertical-align: middle !important
+}
+
+.EscrowButtonPrimary.EscrowButtonPrimary:focus,
+.EscrowButtonPrimary.EscrowButtonPrimary:hover {
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    outline: 0 !important;
+    text-decoration: none !important;
+    -webkit-transform: none !important;
+    transform: none !important
+}
+
+.EscrowButtonPrimary.EscrowButtonPrimary:hover {
+    background-color: #4f1ac2 !important;
+    /* border-color: #56da9a !important */
+}
+
+.EscrowButtonPrimary.EscrowButtonPrimary:focus {
+    background-color: #4f1ac2 !important
+}
+
+.rating {
+    display: inline-block;
+}
+
+.star {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.star:hover {
+    color: #f7d106;
+}

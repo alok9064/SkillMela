@@ -1,0 +1,590 @@
+
+body{
+    background: linear-gradient(60deg, #F6F8FA, #dccefd);
+    color: #333333;
+}
+
+.client-profile{
+    height: 100vh;
+    padding: 30px 0;
+}
+.client-profile-fb-section {
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+/* ..........Item1 ......... */
+.client-profile-item1{
+    height: auto;
+    width: auto;
+}
+.cp-cover-photo{
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+}
+.cp-person-photo{
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 90px;
+    left: 100px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.cp-person-photo img{
+    height: 245px;
+    width: 245px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+.cp-person-photo img:hover{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
+/* Style for the modal (popup form) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    
+}
+
+/* Modal content */
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 20px ;
+    text-align: center;
+}
+.modal-content h3 {
+    padding: 10px 0;
+}
+.modal-content input {
+    width:175px;
+
+}
+
+/* Style for buttons in the modal */
+.view-dp {
+    width: 100%;
+    border-radius: 30px;
+    background-color: #6528F7;
+    color: white;
+    font-weight: 700;
+}
+.modal button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    
+}
+
+/* Style for Save button */
+.modal .save-btn {
+    background-color: #6528F7;
+    color: white;
+    width: 80px;
+}
+
+/* Style for Cancel button */
+.modal .cancel-btn {
+    background-color: #dccefd;
+    color: black;
+    width: 80px;
+}
+
+/* ..........item2 ......... */
+
+.client-profile-item2{
+    height: auto;
+    margin: 20px 100px;
+    padding: 65px 15px 15px 15px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 50px;
+}
+.cp-client-name{
+    height: auto;
+}
+.cp-client-name h1{
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+}
+.cp-client-name h1 .cp-client-pronouns-span{
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.cp-client-name p{
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+}
+.cp-client-name-eidt{
+    display: flex;
+    justify-content: space-between;
+}
+.full-stars {
+    font-size: 24px;
+    color: gold;
+}
+.cp-client-name-eidt h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+.cp-client-name-eidt a{
+    height: 40px;
+    width: 40px;
+    color: #333333;
+    border-radius: 50%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #333333;
+    transition: all 0.2s;
+}
+.cp-client-name-eidt a:hover{
+    transform: scale(0.9);
+    color: #a6a6a6;
+    border: 2px solid #a6a6a6;
+}
+
+.cp-client-share{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.up {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+.down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+.card1 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+}
+.linkedin {
+    margin-top: 1.5em;
+    margin-left: -0.9em;
+    fill: #0077b5;
+}
+.card2 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+}
+.twitter {
+    margin-top: 1.5em;
+    margin-left: -.9em;
+    fill: #03A9F4;
+}
+.card3 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+}
+.github {
+    margin-top: -.6em;
+    margin-left: 1.2em;
+}
+.card4 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+}
+.discord {
+    margin-top: -.9em;
+    margin-left: -1.2em;
+    fill: #8c9eff;
+}
+.card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #0077b5;
+}
+.card1:hover .linkedin {
+    fill: white;
+}
+.card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #03A9F4;
+}
+.card2:hover .twitter {
+    fill: white;
+}
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
+}
+.card3:hover .github {
+    fill: white;
+}
+.card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+}
+.card4:hover .discord {
+    fill: white;
+}
+
+
+
+/* ..............item3 .............. */
+
+
+.client-profile-item3{
+    height: auto;
+    width: auto;
+    margin: 0 100px;
+    padding: 15px;
+    border: 2px solid #8553f9;
+    border-radius: 20px;
+}
+.cp-company-section1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.client-profile-item3 .cp-company-section1 h1{
+    margin: 0;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+.cp-company-section1 a{
+    height: auto;
+    border-radius: 30px;
+    display: flex;
+    padding: 10px;
+    justify-content: end;
+    align-items: center;
+    background-color: #4808dd;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.cp-company-section1 a:hover{
+    background-color: #8553f9;
+    color: black;
+}
+.cp-company-section2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
+}
+.cp-company-section2 .cp-company-details{
+    font-size: 23px;
+    font-weight: 700;
+    color: #8553f9;
+    padding: 10px 0;
+}
+.cp-company-section2 .cp-company-contacts{
+    font-size: 23px;
+    font-weight: 700;
+    color: #8553f9;
+    padding: 10px 0;
+}
+.cp-company-section2 h2{
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    padding: 10px 0;
+}
+.cp-company-section2 p{
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+    padding: 10px 0;
+}
+.cp-company-details1{
+    border-right: 0.5px solid #8553f9;
+}
+.cp-company-website a{
+    text-decoration: none;
+    color: #0077b5;
+}
+.cp-company-website a:hover{
+    text-decoration: underline;
+    color: #0077b5;
+}
+
+
+
+/* ..........item4.......... */
+.client-profile-item4{
+    height: auto;
+    width: auto;
+    margin: 20px 100px;
+    padding: 15px;
+    border: 2px solid #8553f9;
+    border-radius: 20px;
+}
+.free-profile-description .free-profile-feedbacks{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0 10px 0;
+}
+.free-profile-description-feedbacks{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+}
+.client-profile-item3 h1{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: #6e6d6d;
+}
+.client-profile-item3 ul{
+    display: flex;
+    flex-direction: column;
+}
+.cp-client-feedback-items li{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.cp-client-feedback-items li img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+    padding: 15px;
+}
+.cp-feedback-comment{
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cp-client-feedback-items li .free-feedback-comment{
+    margin-left: 15px;
+}
+.cp-client-feedback-items li h1{
+    color: #6e6d6d;
+    font-size: 15px;
+    margin: 0;
+    font-weight: 400;
+}
+.cp-client-feedback-items li h1 a{
+    font-size: 20px;
+    font-weight: 600;
+    color: #8553f9;
+    text-decoration: none;
+}
+.cp-client-feedback-items li h1 a:hover{
+    text-decoration: underline;
+}
+.cp-client-feedback-items li p{
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+.cp-client-feedback-items li h2{
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 112px;
+    color: #4a4a4a;
+}
+.cp-client-feedback-items li h2 a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0;
+    color: #0274b3;
+}
+.cp-client-feedback-items li h2 a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+@media(max-width: 1200px){
+    .cp-cover-photo{
+        height: 230px;
+    }
+    .cp-person-photo{
+        height: 210px;
+        width: 210px;
+        top: 50px;
+        left: 50px;
+    }
+    .cp-person-photo img{
+        height: 200px;
+        width: 200px;
+    }
+    .cp-person-photo img:hover{
+        height: 210px;
+        width: 210px;
+    }
+    .cp-client-item{
+        margin: 20px 50px;
+    }
+    .cp-client-feedback-items li h2{
+        padding-left: 90px;
+    }
+}
+@media(max-width: 1000px){
+    .cp-cover-photo{
+        height: 210px;
+    }
+    .cp-person-photo{
+        height: 190px;
+        width: 190px;
+    }
+    .cp-person-photo img{
+        height: 180px;
+        width: 180px;
+    }
+    .cp-person-photo img:hover{
+        height: 190px;
+        width: 190px;
+    }
+    .cp-client-item{
+        margin: 20px 10px;
+    }
+    .cp-client-feedback-items li h2{
+        padding-left: 60px;
+    }
+}
+@media(max-width: 900px){
+    .cp-cover-photo{
+        height: 150px;
+    }
+    .cp-person-photo{
+        height: 150px;
+        width: 150px;
+        top: 40;
+        left: 20px;
+    }
+    .cp-person-photo img{
+        height: 145px;
+        width: 145px;
+    }
+    .cp-person-photo img:hover{
+        height: 150px;
+        width: 150px;
+    }
+    .client-profile-item2{
+        height: auto;
+        padding: 40px 0 0 0;
+        display: grid;
+        grid-template-rows: 1.5fr 0.7fr;
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    .cp-client-share{
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cp-card{
+        height: 70px;
+        width: 70px;
+    }
+    .cp-client-item{
+        margin: 20px 10px;
+    }
+    .cp-client-feedback-items li h2{
+        padding-left: 40px;
+    }
+}
+
+@media(max-width: 650px){
+    .cp-client-name-eidt a{
+        height: 30px;
+        width: 30px;
+        font-size: 20px;
+    }
+    .cp-company-section2{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.8fr;
+        gap: 20px;
+    }
+    .cp-company-section1 a{
+        height: auto;
+        width: auto;
+        font-size: 15px;
+    }
+    .cp-company-details1{
+        padding-bottom: 10px;
+        border-right: 0px;
+        border-bottom: 0.5px solid #8553f9;
+    }
+    .cp-company-details2 h1{
+        padding-top: 0px;
+    }
+    .cp-client-feedback-items li h2{
+        font-size: 15px;
+        padding-left: 20px;
+    }
+    .cp-client-feedback-items li h2 a{
+        font-size: 15px;
+    }
+}

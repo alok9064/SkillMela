@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+<section class="forgot-section"></section>
+    <div class="wrapper-forgot">
+        <!-- <span class="icon-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>
+        </span> -->
+
+        <div class="form-box-forgot">
+            <h2>Forgot Password</h2>
+            <p>Create a new password to login your account.</p>
+            <form action="#">
+                <div class="input-box-forgot">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                        </svg></span>
+                    <input type="email" placeholder="Email" required>
+                    <!-- <label>Email</label> -->
+                </div>
+                <button type="submit" class="Submit-btn">Submit</button>
+                <a type="submit" class="back-login" href="../Lgin-Page/index.html">Back to Login</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<%- include("partials/footer.ejs") %>

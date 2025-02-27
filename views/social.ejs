@@ -1,0 +1,229 @@
+<%- include("partials/header.ejs") %>
+<section class="social-section">
+<div class="social-container">
+    <!-- Sidebar -->
+    <div class="sidebar-section">
+        <aside class="sidebar">
+            <a href="/home" class="sidebar-item"><i class="fas fa-home"></i> Home</a>
+            <a href="#" class="sidebar-item" onclick="toggleSubSidebar('searchSidebar')"><i class="fas fa-search"></i> Search</a>
+            <a href="#" class="sidebar-item" onclick="toggleSubSidebar('videosSidebar')"><i class="fas fa-video"></i> Videos</a>
+            <a href="#" class="sidebar-item" onclick="showCreatePostForm()"><i class="fas fa-pencil-alt"></i> Create Post</a>
+            <a href="#" class="sidebar-item" onclick="toggleSubSidebar('notificationsSidebar')"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="#" class="sidebar-item" onclick="toggleSubSidebar('messagesSidebar')"><i class="fas fa-envelope"></i> Messages</a>
+            <a href="#" class="sidebar-item" onclick="toggleSubSidebar('settingsSidebar')"><i class="fas fa-cog"></i> Settings</a>
+        </aside>
+        <!-- Sub Sidebars -->
+        <!-- Search Sidebar -->
+        <aside class="sub-sidebar" id="searchSidebar">
+            <button class="back-btn" onclick="closeSubSidebar()">Back</button>
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." id="searchInput">
+                <button class="go-btn" onclick="performSearch()">Go</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </aside>
+    
+        <!-- Videos Sidebar -->
+        <aside class="sub-sidebar" id="videosSidebar">
+            <button class="back-btn" onclick="closeSubSidebar()">Back</button>
+            <div class="videos-content">
+                <p>Here are some videos!</p>
+                <!-- Add video content here -->
+            </div>
+        </aside>
+         <!-- Notifications Sidebar -->
+         <aside class="sub-sidebar" id="notificationsSidebar">
+            <button class="back-btn" onclick="closeSubSidebar()">Back</button>
+            <div class="notifications-content">
+                <p>No new notifications.</p>
+            </div>
+        </aside>
+    
+        <!-- Messages Sidebar -->
+        <aside class="sub-sidebar" id="messagesSidebar">
+            <button class="back-btn" onclick="closeSubSidebar()">Back</button>
+            <div class="messages-content">
+                <p>You have no messages.</p>
+            </div>
+        </aside>
+    </div>
+
+
+     <!-- Edit Profile Form -->
+    <!-- <div class="edit-profile-form" id="editProfileForm">
+    <h3>Edit Profile</h3>
+    <form id="profileForm">
+
+        
+        <label for="profilePic">Profile Picture:</label>
+        <input type="file" id="profilePic" name="profilePic" accept="image/*">
+
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName">
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+
+        <label for="shortBio">Short Bio:</label>
+        <textarea id="shortBio" name="shortBio" maxlength="300"></textarea>
+
+        <label for="fullBio">Full Bio:</label>
+        <textarea id="fullBio" name="fullBio"></textarea>
+
+        <label for="skills">Skills & Expertise:</label>
+        <input type="text" id="skills" name="skills">
+
+        <label for="languages">Languages Spoken:</label>
+        <input type="text" id="languages" name="languages">
+        <button type="button" onclick="submitEditProfile()">Submit</button>
+
+        
+    </form>
+    </div> -->
+
+    <!-- Account Privacy Settings -->
+    <!-- <div class="privacy-settings" id="privacySettings">
+    <h3>Account Privacy</h3>
+
+    
+    <label for="profileVisibility">Profile Visibility:</label>
+    <select id="profileVisibility">
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+        <option value="custom">Custom</option>
+    </select>
+
+    <label for="profileSectionPrivacy">Who can view your education and work experience?</label>
+    <select id="profileSectionPrivacy">
+        <option value="everyone">Everyone</option>
+        <option value="connections">Connections Only</option>
+        <option value="noOne">No One</option>
+    </select>
+
+    <label for="notificationsSettings">Notification Preferences:</label>
+    <input type="checkbox" id="emailNotifications"> Email Alerts<br>
+    <input type="checkbox" id="smsNotifications"> SMS Alerts<br>
+    <input type="checkbox" id="inAppNotifications"> In-App Notifications<br>
+    <button type="button" onclick="submitPrivacySettings()">Submit</button>
+    </div> -->
+
+    
+
+
+
+    <!-- Post Container -->
+    <main class="main-content"> 
+        <section class="social-post-section">
+            <div class="post-container">
+                <!-- Image or Video Post -->
+                <div class="post-media">
+                    <!-- Example Image Post -->
+                    <img src="/images/ganpati.png" alt="Post Image" class="post-image">
+                    
+                    
+                    <!-- Example Video Post (comment out the image and uncomment this to use videos) -->
+                    <!-- <video controls class="post-video">
+                        <source src="path/to/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video> -->
+                </div>
+            
+
+                <!-- Post Content -->
+                <div class="post-content">
+                    <div class="post-actions">
+                        <button class="like-btn" onclick="toggleLike(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button class="comment-btn" onclick="toggleCommentBox(this)"><i class="fas fa-comment"></i> Comment</button>
+                        <button class="share-btn" onclick="sharePost(this)"><i class="fas fa-share"></i> Share</button>
+                    </div>
+                    <div class="post-stats">
+                        <span class="likes-count">123 Likes</span>
+                        <span class="comments-count">45 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Comment Box -->
+                <div class="comment-box" style="display: none;">
+                    <textarea placeholder="Write a comment..."></textarea>
+                    <button onclick="postComment()">Post</button>
+                    <div class="comments-list">
+                        <!-- Example Comment -->
+                        <div class="comment">
+                            <strong>User1:</strong> This is an example comment!
+                        </div>
+                        <!-- Add more comments dynamically -->
+                    </div>
+                </div>
+            </div>
+            <!-- Post 2 -->
+            <div class="post-container">
+                <!-- Image or Video Post -->
+                <div class="post-media">
+                    <!-- Example Image Post -->
+                    <img src="/images/janmashtami.png" alt="Post Image" class="post-image">
+                </div>
+
+                <!-- Post Content -->
+                <div class="post-content">
+                    <div class="post-actions">
+                        <button class="like-btn" onclick="toggleLike(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button class="comment-btn" onclick="toggleCommentBox(this)"><i class="fas fa-comment"></i> Comment</button>
+                        <button class="share-btn" onclick="sharePost(this)"><i class="fas fa-share"></i> Share</button>
+                    </div>
+                    <div class="post-stats">
+                        <span class="likes-count">205 Likes</span>
+                        <span class="comments-count">67 Comments</span>
+                    </div>
+                </div>
+
+                <!-- Comment Box -->
+                <div class="comment-box" style="display: none;">
+                    <textarea placeholder="Write a comment..."></textarea>
+                    <button onclick="postComment()">Post</button>
+                    <div class="comments-list">
+                        <div class="comment"><strong>User3:</strong> Amazing picture!</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Post 3 -->
+            <div class="post-container">
+                <!-- Image or Video Post -->
+                <div class="post-media">
+                    <!-- Example Image Post -->
+                    <img src="/images/home-social.png" alt="Post Image" class="post-image">
+                </div>
+
+                <!-- Post Content -->
+                <div class="post-content">
+                    <div class="post-actions">
+                        <button class="like-btn" onclick="toggleLike(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button class="comment-btn" onclick="toggleCommentBox(this)"><i class="fas fa-comment"></i> Comment</button>
+                        <button class="share-btn" onclick="sharePost(this)"><i class="fas fa-share"></i> Share</button>
+                    </div>
+                    <div class="post-stats">
+                        <span class="likes-count">208 Likes</span>
+                        <span class="comments-count">89Comments</span>
+                    </div>
+                </div>
+
+                <!-- Comment Box -->
+                <div class="comment-box" style="display: none;">
+                    <textarea placeholder="Write a comment..."></textarea>
+                    <button onclick="postComment()">Post</button>
+                    <div class="comments-list">
+                        <div class="comment"><strong>User3:</strong> Amazing picture!</div>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </main>       
+</div>
+</section>
+<%- include("partials/footer.ejs") %>    
+

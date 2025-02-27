@@ -1,0 +1,146 @@
+.learn-hero {
+    /*padding: 70px 30px;*/
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    background: linear-gradient(60deg, #dccefd, #F6F8FA);
+}
+.learn-hero-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 100px;
+}
+.learn-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 50%;
+}
+.learn-hero-image {
+    width: 50%;
+}
+.learn-hero-content h1{
+    font-size: 3em;
+    padding: 20px;
+}
+.learn-hero-content p {
+    padding: 20px;
+    font-size: 1rem;
+    color: #727272;
+}
+/* .hero-btn {
+    padding-top: 20px;
+}
+.hero-btn .btn {
+    background-color: #6528F7;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+}
+.hero .btn:hover {
+    background-color: #A076F9;
+} */
+
+/* section courses */
+
+.courses {
+    text-align: left;
+    padding: 40px 100px;
+    margin: 0;
+}
+
+.top-course-text h1 {
+    font-size: 2rem;
+    padding: 20px;
+}
+.top-course-text p {
+    padding: 20px;
+    font-size: 1rem;
+    color: #727272;
+}
+
+/* .grid-container */
+
+.grid-container-courses {
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; 
+    
+}
+
+/* Courses card  */
+.card-courses {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+.card-courses:hover {
+    box-shadow: 0 10px 15px #dccefd;
+  }
+.card-courses img {
+    width: 100%;
+    border-radius: 10px;
+}
+.card-courses .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.card-courses .header h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 10px;
+}
+.card-courses .header .badge {
+    background-color: #ffd700;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.card-courses .content {
+    margin-bottom: 10px;
+}
+.card-courses .content .lessons {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+.card-courses .content .lessons i {
+    margin-right: 5px;
+}
+.card-courses .content h3 {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.card-courses .content p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.card-courses .card-footer-courses a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+

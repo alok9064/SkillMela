@@ -1,0 +1,365 @@
+
+
+/* .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(153, 143, 143);
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+ */
+
+/* .logo img {
+    height: 50px;
+} */
+
+/* .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.hamburger-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger-icon {
+    font-size: 24px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.dropdown button {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.dropdown button:hover {
+    background-color: #4a1dbc;
+}
+
+#profile-pic:hover + #dropdown-menu,
+#hamburger-menu:hover #logout-menu {
+    display: flex;
+} */
+
+
+
+.social-container{
+    height: 100vh;
+    display: flex;
+    /* overflow-y: auto; */
+ }
+ /* .social-section {
+    overflow-y: auto;
+ } */
+ .sidebar-section  {
+    width: 250px;
+    height: 100vh;
+    
+ }
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #6528F7;
+    /* padding: 20px; */
+    position: sticky;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+.sidebar-item i {
+    margin-right: 10px;
+}
+.sidebar-item:hover {
+    background-color: #5a21d6;
+    cursor: pointer;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 70%;
+    margin-right: 10px;
+}
+.go-btn {
+    background-color: #6528F7;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Basic reset for margin and padding */
+
+
+/* Container for the form */
+/* .edit-profile-form, .privacy-settings {
+    display: none; 
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #9c8484;
+    border: 1px solid #0c0303;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="file"], textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.privacy-settings input[type="checkbox"] {
+    margin-right: 5px;
+} */
+
+/* Container for the entire layout */
+/* .container {
+    display: flex;
+} */
+
+/* Main content area styling */
+/* .main-content {
+    margin-left: 250px; 
+    margin-right: 300px; 
+    padding: 20px;
+    flex: 1;
+    min-height: 100vh; 
+} */
+
+/* Post Container */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow: auto;
+    /* background-color: #f8f9fa;  */
+    
+}
+.social-post-section {
+    padding-bottom: 50px; /* Space between content and footer */
+    margin-top: 90px;
+}
+
+.post-container {
+    width: 100%;
+    max-width: 800px; /* Adjust based on your design */
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Media */
+.post-media img, .post-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Post Content */
+.post-content {
+    padding: 15px;
+}
+
+/* Post Actions */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #1f2b91;
+    transition: color 0.3s ease;
+}
+
+.post-actions button.active {
+    color: #616173; /* Blue color when active */
+}
+
+.post-actions i {
+    margin-right: 5px;
+}
+
+/* Post Stats */
+.post-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Comment Box */
+.comment-box {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: none; /* Hidden by default */
+}
+
+.comment-box textarea {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.comment-box button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.comment-box button:hover {
+    background-color: #3b5d80;
+}
+
+.comments-list {
+    margin-top: 10px;
+}
+
+.comment {
+    margin-bottom: 5px;
+}
+
+/* Adjustments for sidebar and sub-sidebar */
+
+
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-content {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-right: 0;
+    }  
+
+    .sidebar, .sub-sidebar {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        overflow: hidden;
+    }
+}
+.sidebar {
+    width: 250px;
+    background-color: #6528F7;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Make sure it covers the entire height */
+    transition: all 0.3s ease;
+    margin-top: 60px; /* Account for the fixed navbar */
+    overflow: hidden;
+}
+
+
+
+.sub-sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 60px; /* Ensure the sub-sidebar is below the navbar */
+    right: -300px;
+    background-color: #9b8989;
+    padding: 20px;
+    transition: right 0.3s ease;
+}
+.sub-sidebar.active {
+    right: 0;
+}
+
+.back-btn {
+    background-color: #6528F7;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}

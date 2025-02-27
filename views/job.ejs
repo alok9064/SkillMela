@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Page</title>
+  <link rel="stylesheet" href="/styles/jobs.css">
+  <!-- <link rel="stylesheet" href="/styles/layout.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<header>
+  <nav class="navbar">
+      <div class="nav-item1">
+          <a href="/client-home/<%= client.id %>"><h2>Skill<span style="color: #6528F7;">Mela</span></h2></a>
+      </div>
+      <!-- /* From Uiverse.io by LightAndy1 */  -->
+      <div class="group">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+          <g>
+            <path
+              d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+            ></path>
+          </g>
+        </svg>
+        <input class="input" type="search" placeholder="Search" />
+      </div>
+
+      <div class=" nav-item2">
+          <a class="jobclass" href="/job/:clientId">Jobs</a>
+          <a href="/talents">Talents</a>
+          <!-- <a href="/mentorship">Projects</a> -->
+          <a href="/messaging">Messaging</a>
+          <a href="/client-social">Social</a>
+      </div>
+      
+      
+        <% if (typeof client !== 'undefined' && client) { %>
+            <div class="nav-item3">
+              <% if (client_profile.profile_photo === null) { %>
+                <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } else { %>
+                <img src="<%= client_profile.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } %>  
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="/client-profile/<%= client.id %>">View Profile</a>
+                    <a href="/client-settings/<%= client.id %>">Settings</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        <% } else { %>
+          <div class="nav-item2-sign">
+            <a class="nav-item2-signin" href="/signin">Login</a>
+            <a class="nav-item2-signup" href="/signup">Sign Up</a>
+          </div>
+        <% } %>
+  </nav>
+</header>
+<body>
+  <div class="job-page">
+    <!-- Sidebar -->
+    <div class="job-page-sidebar">
+      <button class="job-page-sidebar-btn active" onclick="showContent('job-page-post-job')">Post a Job</button>
+      <button class="job-page-sidebar-btn" onclick="showContent('job-page-all-job-posts')">All Job Posts</button>
+      <button class="job-page-sidebar-btn" onclick="showContent('job-page-all-contracts')">All Contracts</button>
+      <button class="job-page-sidebar-btn" onclick="showContent('job-page-any-hire')">Any Hire</button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="job-page-content-area">
+      <!-- Post a Job Section -->
+      <div id="job-page-post-job" class="job-page-content-box active">
+        <form action="/post-job" method="POST" enctype="multipart/form-data">
+          <div class="job-page-input-group">
+            <label for="project-name">Project Name:</label>
+            <input type="text" id="job-page-project-name" name="projectName" class="job-page-input-box" placeholder="Enter the project name" required>
+          </div>
+        
+          <div class="job-page-input-group">
+            <label for="project-description">Project Description:</label>
+            <textarea id="job-page-project-description" name="projectDescription" class="job-page-input-box" rows="5" placeholder="Describe the project" required></textarea>
+          </div>
+        
+          <div class="job-page-input-group">
+            <label for="project-files">Attach Files (Images or Documents):</label>
+            <input type="file" id="job-page-project-files" name="projectFiles" class="job-page-input-box" multiple>
+          </div>
+          
+  
+
+          <!-- Dropdown to select category -->
+          <div class="job-page-select-category">
+            <label for="proj-category">Select Project Category:</label>
+            <select name="proj-category" id="proj-category" onchange="showSkills()">
+                <option value="">-- Select Category --</option>
+                <option value="webDevelopment">Web Development</option>
+                <option value="mobileAppDevelopment">Mobile App Development</option>
+                <option value="dataScience">Data Science</option>
+                <option value="graphicDesign">Graphic Design</option>
+                <!-- Add more categories as needed -->
+            </select>
+          </div>
+         
+          <!-- Skills checkboxes will show based on category -->
+          <div class="job-page-input-group" >
+            <div class="job-page-skills-checkbox-group" id="webDevelopment-skills" style="display: none;">
+              <h3>Select Web Development Skills:</h3>
+              <label><input type="checkbox" name="skills" value="HTML"> HTML</label><br>
+              <label><input type="checkbox" name="skills" value="CSS"> CSS</label><br>
+              <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label><br>
+              <label><input type="checkbox" name="skills" value="React"> React</label><br>
+              <label><input type="checkbox" name="skills" value="Node.js"> Node.js</label><br>
+              <!-- Add more web development skills -->
+            </div>
+          </div>
+          
+          <div class="job-page-input-group"> 
+            <div class="job-page-skills-checkbox-group" id="mobileAppDevelopment-skills" style="display: none;">
+                <h3>Select Mobile App Development Skills:</h3>
+                <label><input type="checkbox" name="skills" value="Java"> Java</label><br>
+                <label><input type="checkbox" name="skills" value="Kotlin"> Kotlin</label><br>
+                <label><input type="checkbox" name="skills" value="Swift"> Swift</label><br>
+                <label><input type="checkbox" name="skills" value="React Native"> React Native</label><br>
+                <label><input type="checkbox" name="skills" value="Flutter"> Flutter</label><br>
+                <!-- Add more mobile app development skills -->
+            </div>
+          </div>
+
+          <div class="job-page-input-group">
+            <div class="job-page-skills-checkbox-group" id="dataScience-skills" style="display: none;">
+                <h3>Select Data Science Skills:</h3>
+                <label><input type="checkbox" name="skills" value="Python"> Python</label><br>
+                <label><input type="checkbox" name="skills" value="R"> R</label><br>
+                <label><input type="checkbox" name="skills" value="SQL"> SQL</label><br>
+                <label><input type="checkbox" name="skills" value="TensorFlow"> TensorFlow</label><br>
+                <label><input type="checkbox" name="skills" value="PyTorch"> PyTorch</label><br>
+                <!-- Add more data science skills -->
+            </div>
+          </div>
+
+          <div class="job-page-input-group"> 
+            <div class="job-page-skills-checkbox-group" id="graphicDesign-skills" style="display: none;">
+                <h3>Select Graphic Design Skills:</h3>
+                <label><input type="checkbox" name="skills" value="Photoshop"> Photoshop</label><br>
+                <label><input type="checkbox" name="skills" value="Illustrator"> Illustrator</label><br>
+                <label><input type="checkbox" name="skills" value="CorelDraw"> CorelDraw</label><br>
+                <label><input type="checkbox" name="skills" value="Figma"> Figma</label><br>
+                <label><input type="checkbox" name="skills" value="Sketch"> Sketch</label><br>
+                <!-- Add more graphic design skills -->
+            </div>
+          </div> 
+          <div class="job-page-input-group">
+              <span>
+                <label for="">Set the price range for your project: </label>
+                <span style="color: #6528f7;">$</span>
+                  <input type="number" id="bid-amount" name="min_price" min="0" required placeholder="Min">
+                <span>USD/hr</span> 
+
+                <span style="color: #6528f7;">$</span>
+                  <input type="number" id="bid-amount" name="max_price" required placeholder="Max">
+                <span>USD/hr</span>
+              </span>
+          </div>
+          
+          <button type="submit" class="job-page-submit-btn">Post</button>
+        </form>
+      </div>
+
+      <!-- All Job Posts Section -->
+      <div id="job-page-all-job-posts" class="job-page-content-box">
+        <div class="search-bar-container">
+          <input type="text" class="job-page-search-bar" placeholder="Search job posts...">
+          <button class="job-page-new-post-btn">Search</button>
+        </div>
+        <div class="job-page-job-list">
+          <% jobPosts.forEach((job) => { %>
+            <div class="job-page-job-item">
+              <h3 class="job-page-job-title"><%= job.title %>
+                <span>
+                  <% if (job.status === 'open') { %>
+                    <p>
+                      <span class="home-status-indicator"></span> Hiring
+                      <button class="home-review-btn" onclick="window.location.href='/applicants/<%= job.job_id %>'">Review Proposals</button>
+                    </p>
+                    
+                  <% } else if (job.status === 'closed') { %>
+                    <p>
+                      Closed
+                      <button class="home-review-btn" onclick="window.location.href='/applicants/<%= job.job_id %>'">View Proposals</button>
+                    </p>
+                  <% } %>
+                </span>
+              </h3>
+              
+              <p class="job-page-job-description"><%= job.description %></p>
+              <button class="read-more-btn">Read More</button>
+              <p class="job-page-job-skills"><strong>Skills:</strong> <%= job.skills.join(', ') %></p>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- All Contracts Section -->
+      <div id="job-page-all-contracts" class="job-page-content-box">
+        <h2 class="job-page-contracts-heading">All Contracts</h2>
+        <div class="job-page-search-filter-container">
+          <input type="text" class="job-page-search-bar" placeholder="Search contracts...">
+          <div class="job-page-filter-options">
+            <select class="job-page-sort-dropdown">
+              <option value="start-date">Sort by Start Date</option>
+              <option value="end-date">Sort by End Date</option>
+              <option value="freelancer-name">Sort by Freelancer Name</option>
+              <option value="team">Sort by Team</option>
+              <option value="contract-name">Sort by Contract Name</option>
+            </select>
+          </div>
+        </div>
+        <div class="job-page-contract-list">
+          <!-- Contracts will be rendered here -->
+        </div>
+      </div>
+
+      <!-- Any Hire Section -->
+      <div id="job-page-any-hire" class="job-page-content-box">
+        <h2>Any Hire</h2>
+        <p>Manage any hiring-related activities.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    // DROPDOWN
+    function toggleDropdown() {
+        document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-pic')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+    
+    function showContent(sectionId) {
+      // Hide all content boxes
+      document.querySelectorAll('.job-page-content-box').forEach(box => {
+        box.classList.remove('active');
+      });
+
+      // Remove active class from all sidebar buttons
+      document.querySelectorAll('.job-page-sidebar-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show the selected content box and set the clicked button as active
+      document.getElementById(sectionId).classList.add('active');
+      document.querySelector(`.job-page-sidebar-btn[onclick="showContent('${sectionId}')"]`).classList.add('active');
+    }
+
+    // function showContent(contentId) {
+    //   const contents = document.querySelectorAll('.job-page-content-box');
+    //   contents.forEach(content => {content.style.display = 'none';});
+
+    //   const selectedContent = document.getElementById(contentId);
+    //   if (selectedContent) {
+    //     selectedContent.style.display = 'block';
+    //   }
+    // }
+
+    function showSkills() {
+      // Hide all skills sections
+      const allSkillsSections = document.querySelectorAll('.job-page-skills-checkbox-group');
+      allSkillsSections.forEach(section => section.style.display = 'none');
+
+      // Get the selected category
+      const selectedCategory = document.getElementById('proj-category').value;
+
+      // Display the corresponding skills section
+      if (selectedCategory) {
+        const selectedSkillsSection = document.getElementById(selectedCategory + '-skills');
+        if (selectedSkillsSection) {
+            selectedSkillsSection.style.display = 'block';
+        }
+      }
+    }
+    
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+      readMoreBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+              const proposalText = this.previousElementSibling;
+              proposalText.classList.toggle('expanded');
+              
+              if (proposalText.classList.contains('expanded')) {
+                  this.textContent = "Show Less";
+              } else {
+                  this.textContent = "Read More";
+              }
+          });
+    });
+  </script>
+</body>
+</html>

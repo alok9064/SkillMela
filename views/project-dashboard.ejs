@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/project-dashboard.css">
+</head>
+<header>
+    <nav class="navbar">
+      
+        <div class="active-toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="nav-item1">
+            <a href="/">
+              <!-- <img class="nav-logo" src="/images/logo.png"> -->
+               <h2>Skill<span style="color: #6528F7;">Mela</span></h2>
+            </a>
+        </div>
+        <!-- /* From Uiverse.io by LightAndy1 */  -->
+        <div class="group">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+            <g>
+              <path
+                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+              ></path>
+            </g>
+          </svg>
+          <input class="input" type="search" placeholder="Search" />
+        </div>
+
+        <div class="nav-item2">
+            <a href="/learn">Learn</a>
+            <a href="/practice">Practice</a>
+            <a href="/mentorship">Mentorship</a>
+            <a href="/compete">Compete</a>
+            <a href="/freelancing">Freelancing</a>
+            <a href="/social">Social</a>
+        </div>
+
+        <div class="nav-notifications">
+          <a href="/job-offers">
+              <span class="notification-icon"><i class="fa-solid fa-bell" style="color: #6528F7;"></i></span>
+
+              
+          </a>
+        </div>
+        
+        
+          <% if (typeof user !== 'undefined' && user) { %>
+              <div class="nav-item3">
+                <% if (freelancer.profile_photo === null) { %>
+                  <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } else { %>
+                  <img src="<%= freelancer.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } %>  
+                  <div id="dropdownMenu" class="dropdown-content">
+                      <a href="/profile/<%= user.id %>">Profile</a>
+                      <a href="/project-dashboard/<%= user.id %>">Project Dashboard</a>
+                      <a href="/job-offers">Notifications</a>
+                      <a href="/settings">Settings</a>
+                      <a href="/logout">Logout</a>
+                  </div>
+              </div>
+          <% } else { %>
+            <div class="nav-item2-sign">
+              <a class="nav-item2-signin" href="/signin">Login</a>
+              <a class="nav-item2-signup" href="/signup">Sign Up</a>
+            </div>
+          <% } %>
+
+                
+            
+    </nav>
+
+    <div class="active-dropdown_menu">
+      <a href="/learn">Learn</a>
+      <a href="/practice">Practice</a>
+      <a href="/mentorship">Mentorship</a>
+      <a href="/compete">Compete</a>
+      <a href="/freelancing">Freelancing</a>
+      <a href="/social">Social</a>
+    </div>
+
+</header>
+    
+    <div class="dashboard-container">
+        <h1>Project <span style="color: #6528F7;">Dashboard</span> </h1>
+        
+        <!-- Project Info Section -->
+        <div class="project-info">
+            <h2 style="color: #6528F7;"><%= project.title %></h2>
+            <p><strong>Client:</strong> <%= client.full_name %></p>
+            <p><strong>Freelancer:</strong> <%= freelancer.first_name %></p>
+            <p><strong>Status:</strong> <%= project.status %></p>
+            <p><strong>Due Date:</strong> <%= project.due_date %></p>
+        </div>
+
+        <!-- Milestones Section -->
+        <div class="milestones">
+            <h3>Milestones</h3>
+            <br>
+            <ul>
+                <% milestones.forEach(milestone => { %>
+                    <li class="milestone-item">
+                        <div class="milestone-header">
+                            <strong><%= milestone.name %></strong>
+                            <span>Due: <%= milestone.due_date %></span>
+                        </div>
+                        <!-- Progress Bar for status -->
+                        <div class="status-tracker">
+                            <div class="track-bar">
+                                <div class="progress <%= milestone.status === 'completed' ? 'progress-completed' : milestone.status === 'in progress' ? 'progress-in-progress' : 'progress-not-started' %>">
+                                    <span><%= milestone.status %></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form to update milestone status by freelancer -->
+                        <form action="/milestone/update/<%= milestone.id %>" method="post" class="update-status-form">
+                            <label for="status">Update Status:</label>
+                            <select name="status" id="status">
+                                <option value="pending" <%= milestone.status === 'pending' ? 'selected' : '' %>>Pending</option>
+                                <option value="in progress" <%= milestone.status === 'in progress' ? 'selected' : '' %>>In Progress</option>
+                                <option value="completed" <%= milestone.status === 'completed' ? 'selected' : '' %>>Completed</option>
+                            </select>
+                            <button type="submit" class="btn-save">Save</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+
+        <div class="submit-work">
+            <h3> Submit the Work</h3>
+            <br>
+            <form action="/submit-work" method="post">
+                <input type="file" name="work">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+
+
+<script>
+    // DROPDOWN
+    function toggleDropdown() {
+        document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-pic')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+// NAVBAR RESPONSIVENESS 
+
+    const res_toggleBtn = document.querySelector('.active-toggle_btn')
+    const res_toggleBtnIcon = document.querySelector('.active-toggle_btn i')
+    const res_dropDownMenu = document.querySelector('.active-dropdown_menu')
+
+    res_toggleBtn.onclick = function() {
+        res_dropDownMenu.classList.toggle('open')
+        const res_isOpen = res_dropDownMenu.classList.contains('open')
+
+        res_toggleBtnIcon.classList = res_isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+    }
+</script>
+</body>
+</html>

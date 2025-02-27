@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMela</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/mentorship.css">
+    <link rel="stylesheet" href="styles/learn.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="styles/signin.css">
+    <link rel="stylesheet" href="styles/forgot.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <main>
+        <section class="signin-section">
+            <div class="wrapper-signin">
+        
+                <div class="text-box-signin">
+                    <!-- <h2>Welcome Back</h2>
+                    <p>To keep connected with us please login with your personal info</p> -->
+                </div>
+        
+                <div class="form-box-signin login">
+                    <h2>Welcome Back to Skill<span style="color: #6528F7;">Mela!</span></h2>
+                    <form action="/signin" method="POST">
+                        <div class="input-box-signin">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                                </svg></span>
+                            <input type="email" name="username" placeholder="Email" required>
+                            <!-- <label>Email</label> -->
+                        </div>
+                        <div class="input-box-signin">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                                    </svg></span>
+                            <input type="password" name="password" placeholder="Password" required>
+                            <!-- <label>Password</label> -->
+                        </div>
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Remember me</label>
+                            <a href="../ForgotPage/index.html">Forgot Password</a>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                        <button onclick="location.href='/auth/google';" class="button google-signin">
+                            <svg
+                                viewBox="0 0 256 262"
+                                preserveAspectRatio="xMidYMid"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                            <path
+                                d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+                                fill="#4285F4"
+                            ></path>
+                            <path
+                                d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+                                fill="#34A853"
+                            ></path>
+                            <path
+                                d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
+                                fill="#FBBC05"
+                            ></path>
+                            <path
+                                d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+                                fill="#EB4335"
+                            ></path>
+                            </svg>
+                            Continue with Google
+                        </button>
+                    
+                        <div class="login-register-signin">
+                            <p>Don't have an account? <a href="/signup" class="register-link">Sign Up</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </main>
+</body>
+

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Home</title>
+  <!-- <link rel="stylesheet" href="/styles/layout.css"> -->
+  <link rel="stylesheet" href="/styles/talents.css"> <!-- CSS file for styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<header>
+  <nav class="navbar">
+      <div class="nav-item1">
+          <a href="/client-home/<%= client.id %>"><h2>Skill<span style="color: #6528F7;">Mela</span></h2></a>
+      </div>
+      <!-- /* From Uiverse.io by LightAndy1 */  -->
+      <div class="group">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+          <g>
+            <path
+              d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+            ></path>
+          </g>
+        </svg>
+        <input class="input" type="search" placeholder="Search" />
+      </div>
+
+      <div class=" nav-item2">
+          <a href="/job/<%= client.id %>">Jobs</a>
+          <a class="talentclass" href="/talents">Talents</a>
+          <!-- <a href="/mentorship">Projects</a> -->
+          <a href="/messaging">Messaging</a>
+          <a href="/client-social">Social</a>
+      </div>
+      
+      
+        <% if (typeof client !== 'undefined' && client) { %>
+            <div class="nav-item3">
+              <% if (client_profile.profile_photo === null) { %>
+                <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } else { %>
+                <img src="<%= client_profile.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } %>  
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="/client-profile/<%= client.id %>">View Profile</a>
+                    <a href="/client-settings/<%= client.id %>">Settings</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        <% } else { %>
+          <div class="nav-item2-sign">
+            <a class="nav-item2-signin" href="/signin">Login</a>
+            <a class="nav-item2-signup" href="/signup">Sign Up</a>
+          </div>
+        <% } %>
+  </nav>
+</header>
+<body>
+    
+
+<section class="free-section">
+    <div class="free">
+        <!-- .....Head item..... -->
+        <div class="free-item1 free-item">
+            <h1>Find and Hire <span style="color: #6528F7;">Freelancers</span></h1>
+            <h2>We found <span>1,331,183</span>1,331,183 Freelancers offering <span>1,976,547</span> freelancing services online.</h2>
+        </div>
+        <!-- .....Search Option..... -->
+        <div class="free-item2 free-item">
+            <input placeholder="Search Freelancers..." type="text" name="text" class="input">
+            <button><i class="fa-solid fa-sliders"></i> <span>Filter</span> <i class="fa-solid fa-angle-up"></i></button>
+        </div>
+        <!-- .....Filter Aliments Hidden..... -->
+        <!-- <div class="filter-aliments" aria-hidden="true">
+aria-expanded="false"
+        </div> -->
+
+
+        <!-- .....profiles...... -->
+        <ul class="free-item3 free-item">
+            <!-- .....profile1...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="/find-freelancers"><img src="/images/user.jpg" alt="img"></a>
+                        <div class="address-section">
+                            <a href="/find-freelancers"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Quote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="/find-freelancers"><img  src="/images/user.jpg" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="/find-freelancers">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile2...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="/images/user.jpg" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="/images/user.jpg" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile3...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="/images/user.jpg" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="/images/user.jpg" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile4...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="/images/user.jpg" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="/images/user.jpg" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile5...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="/images/user.jpg" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="/images/user.jpg" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile6...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="/images/user.jpg" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="/images/user.jpg" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile7...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile8...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile9...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="images/logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile10...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile11...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile12...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile13...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile14...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- .....profile15...... -->
+            <li class="profile1">
+                <div class="free-profile">
+                    <div class="name-section">
+                        <a href="#"><img src="./logo.png" alt="img"></a>
+                        <div class="address-section">
+                            <a href="#"><h1>Tanmoy Paul</h1></a>
+                            <h2><span>West Bengal</span>, <span>India</span></h2>
+                            <h3><i class="fa-solid fa-dollar-sign"></i><span>541,776</span> - <i class="fa-regular fa-thumbs-up"></i> 100%</h3>
+                        </div>
+                    </div>
+                    <div class="get-section">
+                        <a class="get-section-reaction heard-red" href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a class="get-section-button" href="#">Get a Ouote</a>
+                    </div>
+                </div>
+                <div class="free-about">
+                    <a class="free-about-item1" href="#"><img  src="./logo.png" alt="img"></a>
+                    <div class="free-about-item2">
+                        <div class="free-about-project">
+                            <a href="#">Web Application Development</a>
+                            <h1><i class="fa-solid fa-dollar-sign"></i><span>38</span>/hr - Starting at <i class="fa-solid fa-dollar-sign"></i><span>100</span></h1>
+                        </div>
+                        <p>I generally work in transcription, regardless the language, i have the experience to understand the tools and guidelines, the speed and accuracy to get the quality & quantity needed I mainly focus on</p>
+                        <ul class="free-about-techstack">
+                            <li><a href="#">Programming & Development</a></li>
+                            <li><a href="#">Programming & Software</a></li>
+                            <li><a href="#">Angular</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">ASP.NET</a></li>
+                            <li><a href="#">AWS</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+</body>
+</html>

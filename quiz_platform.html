@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-roboto">
+    <div class="container mx-auto p-4">
+        <div class="text-center mb-8">
+            <button id="startQuizBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Let's Have a Quiz</button>
+        </div>
+
+        <div id="quizForm" class="hidden bg-white p-6 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Generate Quiz</h2>
+            <form id="generateQuizForm">
+                <div class="mb-4">
+                    <label for="topic" class="block text-gray-700">Topic</label>
+                    <input type="text" id="topic" class="w-full p-2 border border-gray-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="subtopics" class="block text-gray-700">Subtopics (Optional)</label>
+                    <input type="text" id="subtopics" class="w-full p-2 border border-gray-300 rounded">
+                </div>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Generate Quiz</button>
+            </form>
+        </div>
+
+        <div id="quizWindow" class="hidden bg-white p-6 rounded shadow-md">
+            <div class="flex justify-between mb-4">
+                <div id="questionNumber" class="text-xl font-bold">Question 1</div>
+                <div id="timer" class="text-xl font-bold">45s</div>
+            </div>
+            <div id="questionContent" class="mb-4">
+                <p class="text-lg">Question text goes here...</p>
+                <div class="mt-4">
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 1</button>
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 2</button>
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 3</button>
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 4</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultPage" class="hidden bg-white p-6 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Quiz Results</h2>
+            <p class="text-lg">Your score: <span id="score">0</span>/10</p>
+            <button id="retakeQuizBtn" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Retake Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('startQuizBtn').addEventListener('click', function() {
+            document.getElementById('quizForm').classList.remove('hidden');
+        });
+
+        document.getElementById('generateQuizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('quizForm').classList.add('hidden');
+            document.getElementById('quizWindow').classList.remove('hidden');
+            startQuiz();
+        });
+
+        document.getElementById('retakeQuizBtn').addEventListener('click', function() {
+            document.getElementById('resultPage').classList.add('hidden');
+            document.getElementById('quizForm').classList.remove('hidden');
+        });
+
+        let currentQuestion = 1;
+        let score = 0;
+        let timer;
+
+        function startQuiz() {
+            currentQuestion = 1;
+            score = 0;
+            loadQuestion();
+            startTimer();
+        }
+
+        function loadQuestion() {
+            document.getElementById('questionNumber').innerText = `Question ${currentQuestion}`;
+            document.getElementById('questionContent').innerHTML = `
+                <p class="text-lg">Question text for question ${currentQuestion} goes here...</p>
+                <div class="mt-4">
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 1</button>
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 2</button>
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 3</button>
+                    <button class="option bg-gray-200 text-gray-700 px-4 py-2 rounded mb-2 w-full text-left">Option 4</button>
+                </div>
+            `;
+
+            document.querySelectorAll('.option').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (currentQuestion < 10) {
+                        currentQuestion++;
+                        loadQuestion();
+                        resetTimer();
+                    } else {
+                        endQuiz();
+                    }
+                });
+            });
+        }
+
+        function startTimer() {
+            let timeLeft = 45;
+            document.getElementById('timer').innerText = `${timeLeft}s`;
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').innerText = `${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    if (currentQuestion < 10) {
+                        currentQuestion++;
+                        loadQuestion();
+                        resetTimer();
+                    } else {
+                        endQuiz();
+                    }
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            startTimer();
+        }
+
+        function endQuiz() {
+            clearInterval(timer);
+            document.getElementById('quizWindow').classList.add('hidden');
+            document.getElementById('resultPage').classList.remove('hidden');
+            document.getElementById('score').innerText = score;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMela</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/client-home.css">
+    <link rel="stylesheet" href="/styles/client-settings.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+</head>
+<header>
+    <nav class="navbar">
+        <div class="nav-item1">
+            <a href="/client-home/<%= client.id %>"><img class="nav-logo" src="/images/logo.png"></a>
+        </div>
+        <!-- /* From Uiverse.io by LightAndy1 */  -->
+        <div class="group">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+            <g>
+              <path
+                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+              ></path>
+            </g>
+          </svg>
+          <input class="input" type="search" placeholder="Search" />
+        </div>
+
+        <div class=" nav-item2">
+            <a href="/job">Jobs</a>
+            <a href="/practice">Talents</a>
+            <a href="/mentorship">Projects</a>
+            <a href="/freelancing">Messaging</a>
+            <a href="/social">Social</a>
+        </div>
+        
+        
+          <% if (typeof client !== 'undefined' && client) { %>
+              <div class="nav-item3">
+                <% if (client_profile.profile_photo === null) { %>
+                  <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } else { %>
+                  <img src="<%= client_profile.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } %>  
+                  <div id="dropdownMenu" class="dropdown-content">
+                      <a href="/profile/<%= client.id %>">View Profile</a>
+                      <a href="/client-settings/<%= client.id %>">Settings</a>
+                      <a href="/logout">Logout</a>
+                  </div>
+              </div>
+          <% } else { %>
+            <div class="nav-item2-sign">
+              <a class="nav-item2-signin" href="/signin">Login</a>
+              <a class="nav-item2-signup" href="/signup">Sign Up</a>
+            </div>
+          <% } %>
+            
+      
+        <!-- <div class="nav-item3">
+            <img class="nav-logo2" src="images/logo.png">
+        </div> -->
+    </nav>
+</header>
+<body>
+    <main>
+
+    <section class="Client-home-section">
+    <div class="client-home-container">
+        <div class="client-job_post">
+            <h1>Your <span style="color: #9933ff;">jobs</span></h1>
+             <div class="job-post-btn"><span><i class="fa-light fa-plus"></i>Post a job</span></div>
+        </div>
+
+        <div class="client-msg-display">
+          <!-- 1st -->
+          <% if (portfolioItems) { %>
+            <div class="client-card">
+                <% portfolioItems.forEach(item => { %>
+                    <div class="client-title"><%= item.title %></div>
+                    <div class="client-status">Hiring</div>
+                    <div class="client-message">You have 11 new proposals</div>
+                    <div class="portfolio-item">
+                        <img src="<%= item.file_path %>" alt="Portfolio Item">
+                        <p><%= item.title %></p>
+                    </div>
+                <% }) %>
+            </div>
+            <% } else { %>
+            <div class="portfolio-item">
+                <div class="portfolio-reviwes-photo">
+                    <img class="img" src="/images/portfolio.png" >
+                </div>
+                <div class="portfolio-review-parah">
+                    <h4>No Portfolio to see here!</h4>
+                </div>
+            </div>
+            <% } %>
+          <div class="client-card">
+            <div class="client-title">Frontend Developer</div>
+            <div class="client-status">Hiring</div>
+            <div class="client-message">You have 11 new proposals</div>
+            <div class="btn-icon">
+                <button class="client-button">Review proposals</button>
+                <button class="client-chat-icon">💬</button>
+            </div>
+          </div>
+            <!-- 2nd -->
+
+            <div class="client-card">
+              <div class="client-title">Frontend Developer</div>
+              <div class="client-status">Hiring</div>
+              <div class="client-message">You have 11 new proposals</div>
+              <div class="btn-icon">
+                  <button class="client-button">Review proposals</button>
+                  <button class="client-chat-icon">💬</button>
+              </div>
+            </div>
+            <!-- 3rd -->
+            <div class="client-card">
+              <div class="client-title">Frontend Developer</div>
+              <div class="client-status">Hiring</div>
+              <div class="client-message">You have 11 new proposals</div>
+              <div class="btn-icon">
+                  <button class="client-button">Review proposals</button>
+                  <button class="client-chat-icon">💬</button>
+              </div>
+            </div>
+            <!-- 4th -->
+            <!-- <div class="client-card">
+              <div class="client-title">Frontend Developer</div>
+              <div class="client-status">Hiring</div>
+              <div class="client-message">You have 11 new proposals</div>
+              <div class="btn-icon">
+                  <button class="client-button">Review proposals</button>
+                  <button class="client-chat-icon">💬</button>
+              </div>
+            </div> -->
+            <!-- 5th -->
+            <!-- <div class="client-card">
+              <div class="client-title">Frontend Developer</div>
+              <div class="client-status">Hiring</div>
+              <div class="client-message">You have 11 new proposals</div>
+              <div class="btn-icon">
+                  <button class="client-button">Review proposals</button>
+                  <button class="client-chat-icon">💬</button>
+              </div>
+            </div> -->
+
+          <div class="client-msg-container">
+            <div class="client-msg-icon">
+              <img src="./msg.png" alt="">
+            </div>
+            <div class="client-msg-text">
+              <h3>Message & hire talent directly</h3>
+              <p>Connect, discuss, and collaborate with top talent instantly.</p>
+            </div>
+            <div class="msg-btn">
+            <button class="client-msg-button">Browse and message talent</button>
+            </div>
+            </div>
+
+        </div>
+
+
+        <div class="home-client-payments-container">
+         <!-- 1st -->
+       <div class="home-client-payments">
+        <div class="client-home-parah">
+          <p>Payments</p>
+        </div>
+        <div class="description">
+          <h2>Everything you need to know about payments</h2>
+          <img src="./payment_need.png" >
+        </div>
+       </div>
+           <!-- 2nd -->
+        <div class="home-client-payments">
+        <div class="client-home-parah">
+          <p>Payments</p>
+        </div>
+        <div class="description">
+          <h2>How to set up your preferred billing method</h2>
+          <img src="./setup.png" >
+        </div>
+       </div>
+       <!-- 3rd -->
+       <div class="home-client-payments">
+        <div class="client-home-parah">
+          <p>Payments</p>
+        </div>
+        <div class="description">
+          <h2>Keep yourself and other safe on upwork</h2>
+          <img src="./keepyourself.png" >
+        </div>
+       </div>
+      </div>
+    </div>
+    </section>
+
+  </main>
+  
+  
+  <script>
+  
+   
+  // DROPDOWN
+      function toggleDropdown() {
+          document.getElementById("dropdownMenu").classList.toggle("show");
+      }
+      
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+          if (!event.target.matches('.profile-pic')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              for (var i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                  }
+              }
+          }
+      }
+  
+  
+  
+   // Cover Photo Modal Functions
+   function showCoverModal() {
+          document.getElementById('coverModal').style.display = 'block';
+      }
+  
+      function hideCoverModal() {
+          document.getElementById('coverModal').style.display = 'none';
+      }
+  
+      // Profile Photo Modal Functions
+      function showProfileModal() {
+          document.getElementById('profileModal').style.display = 'block';
+      }
+  
+      function hideProfileModal() {
+          document.getElementById('profileModal').style.display = 'none';
+      }
+      
+      //MANAGE-PORTFOLIO
+      function openForm() {
+          document.getElementById("portfolioForm").style.display = "block";
+      }
+  
+      function closeForm() {
+          document.getElementById("portfolioForm").style.display = "none";
+      }
+  
+      function toggleFields() {
+          const contentType = document.querySelector('input[name="contentType"]:checked').value;
+          
+          document.getElementById('codeSampleField').style.display = contentType === 'code' ? 'block' : 'none';
+          document.getElementById('articleField').style.display = contentType === 'article' ? 'block' : 'none';
+          document.getElementById('uploadField').style.display = ['image', 'video', 'audio', 'others'].includes(contentType) ? 'block' : 'none';
+      }
+  
+      document.addEventListener("click", function(event) {
+      const profilePic = document.getElementById("profile-pic");
+      const profileDropdown = document.getElementById("dropdown-menu");
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+      const logoutMenu = document.getElementById("logout-menu");
+  
+      // Close dropdown if clicked outside
+      if (!profilePic.contains(event.target) && !profileDropdown.contains(event.target)) {
+          profileDropdown.style.display = "none";
+      }
+  
+      if (!hamburgerMenu.contains(event.target) && !logoutMenu.contains(event.target)) {
+          logoutMenu.style.display = "none";
+      }
+      
+      // Toggle profile dropdown
+      profilePic.addEventListener("click", function() {
+          profileDropdown.style.display = profileDropdown.style.display === "none" ? "flex" : "none";
+      });
+  
+      // Toggle hamburger menu
+      hamburgerMenu.addEventListener("click", function() {
+          logoutMenu.style.display = logoutMenu.style.display === "none" ? "flex" : "none";
+      });
+  });
+  // Toggle sub-sidebar visibility
+  function toggleSubSidebar(subSidebarId) {
+      const subSidebar = document.getElementById(subSidebarId);
+      subSidebar.classList.add('active');
+  }
+  
+  // Close sub-sidebar and show the main sidebar
+  function closeSubSidebar() {
+      const subSidebars = document.querySelectorAll('.sub-sidebar');
+      subSidebars.forEach(sub => sub.classList.remove('active'));
+  }
+  
+  // Perform search and display results
+  function performSearch() {
+      const query = document.getElementById('searchInput').value;
+      const searchResults = document.getElementById('searchResults');
+      searchResults.innerHTML = `<p>You searched for: <strong>${query}</strong></p>`;
+  }
+  // Toggle the right sidebar (Next)
+  function toggleNextSidebar() {
+      const nextSidebar = document.getElementById('nextSidebar');
+      const mainSidebar = document.querySelector('.sidebar');
+  
+      if (nextSidebar.style.display === 'none' || nextSidebar.style.display === '') {
+          nextSidebar.style.display = 'flex'; // Show the right sidebar
+          mainSidebar.style.display = 'none'; // Hide the left sidebar
+      } else {
+          nextSidebar.style.display = 'none'; // Hide the right sidebar
+          mainSidebar.style.display = 'flex'; // Show the left sidebar
+      }
+  }
+  
+  // Other sidebar toggles (search, notifications, etc.) remain the same
+  // Function to show the Edit Profile form
+  function showEditProfileForm() {
+      document.getElementById('editProfileForm').style.display = 'block';
+      document.getElementById('privacySettings').style.display = 'none'; // Hide the privacy settings if it's open
+  }
+  
+  // Function to show the Account Privacy Settings form
+  function showPrivacySettings() {
+      document.getElementById('privacySettings').style.display = 'block';
+      document.getElementById('editProfileForm').style.display = 'none'; // Hide the profile form if it's open
+  }
+  
+  // Function to handle the submission of the profile edit form
+  function submitEditProfile() {
+      const profileForm = document.getElementById('profileForm');
+      const formData = new FormData(profileForm);
+  
+      // Collect and log the data (you can handle the data submission here)
+      console.log('Profile picture:', formData.get('profilePic'));
+      console.log('First Name:', formData.get('firstName'));
+      console.log('Last Name:', formData.get('lastName'));
+      console.log('Username:', formData.get('username'));
+      console.log('Location:', formData.get('location'));
+      console.log('Short Bio:', formData.get('shortBio'));
+      console.log('Full Bio:', formData.get('fullBio'));
+      console.log('Skills:', formData.get('skills'));
+      console.log('Languages:', formData.get('languages'));
+  
+      alert('Profile updated successfully!');
+  
+      // Optionally reset the form after submission
+      profileForm.reset();
+  }
+  // Function to show the Edit Profile form
+  function showEditProfileForm() {
+      document.getElementById('editProfileForm').style.display = 'block';
+      document.getElementById('privacySettings').style.display = 'none'; // Hide the privacy settings
+      closeSubSidebar(); // Close the settings sidebar
+  }
+  
+  // Function to show the Account Privacy Settings form
+  function showPrivacySettings() {
+      document.getElementById('privacySettings').style.display = 'block';
+      document.getElementById('editProfileForm').style.display = 'none'; // Hide the edit profile form
+      closeSubSidebar(); // Close the settings sidebar
+  }
+  
+  // Function to close the settings sidebar
+  function closeSubSidebar() {
+      document.getElementById('settingsSidebar').style.display = 'none';
+  }
+  
+  // Function to open the settings sidebar
+  function openSubSidebar() {
+      document.getElementById('settingsSidebar').style.display = 'block';
+  }
+  // Function to handle Edit Profile form submission
+  function submitEditProfile() {
+      // You can add your form submission logic here (e.g., AJAX call or form validation)
+      alert('Profile updated successfully!'); // This is just for demonstration
+  
+      // Hide the Edit Profile form after submission
+      document.getElementById('editProfileForm').style.display = 'none';
+  }
+  
+  // Function to handle Account Privacy form submission (if needed)
+  function submitPrivacySettings() {
+      // Add submission logic if needed
+      alert('Privacy settings updated!'); // For demonstration
+  
+      // Hide the Privacy Settings form after submission
+      document.getElementById('privacySettings').style.display = 'none';
+  }
+  
+  // Function to toggle like state
+  function toggleLike(button) {
+      button.classList.toggle('active'); // Toggle blue color on like
+      let likesCount = button.closest('.post-actions').nextElementSibling.querySelector('.likes-count');
+      let currentLikes = parseInt(likesCount.textContent.split(' ')[0]);
+      likesCount.textContent = (button.classList.contains('active') ? currentLikes + 1 : currentLikes - 1) + ' Likes';
+  }
+  
+  // Function to show/hide comment box
+  function toggleCommentBox(button) {
+      let commentBox = button.closest('.post-container').querySelector('.comment-box');
+      commentBox.style.display = commentBox.style.display === 'none' ? 'block' : 'none';
+  }
+  
+  // Function to post a comment
+  function postComment() {
+      let commentBox = document.querySelector('.comment-box');
+      let commentText = commentBox.querySelector('textarea').value;
+      if (commentText) {
+          let commentsList = commentBox.querySelector('.comments-list');
+          let newComment = document.createElement('div');
+          newComment.className = 'comment';
+          newComment.innerHTML = `<strong>You:</strong> ${commentText}`;
+          commentsList.appendChild(newComment);
+          commentBox.querySelector('textarea').value = ''; // Clear the textarea
+      }
+  }
+  
+  // Function to generate a share link
+  function sharePost(button) {
+      let postLink = 'https://example.com/post/123'; // Example post link
+      navigator.clipboard.writeText(postLink).then(() => {
+          alert('Post link copied to clipboard!');
+          button.classList.add('active'); // Change button color to blue
+      });
+  }
+  function toggleSubSidebar(id) {
+      // Close all sub-sidebars first
+      let subSidebars = document.querySelectorAll('.sub-sidebar');
+      subSidebars.forEach(subSidebar => {
+          subSidebar.classList.remove('active');
+      });
+  
+      // Open the selected sub-sidebar
+      let selectedSidebar = document.getElementById(id);
+      if (selectedSidebar) {
+          selectedSidebar.classList.add('active');
+      }
+  }
+  
+  function closeSubSidebar() {
+      // Close any open sub-sidebar
+      let subSidebars = document.querySelectorAll('.sub-sidebar');
+      subSidebars.forEach(subSidebar => {
+          subSidebar.classList.remove('active');
+      });
+  }
+  
+  
+  
+  
+      </script>
+      
+  </body>
+  </html>

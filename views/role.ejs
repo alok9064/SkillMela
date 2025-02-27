@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as Client or Freelancer</title>
+    <style>
+        body {
+            background: linear-gradient(60deg, #dccefd, #F6F8FA);
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .uc-container {
+            
+            text-align: center;
+        }
+
+        h1 {
+            position: relative;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .uc-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .uc-option {
+            position: relative;
+            border: 3px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 200px;
+            transition: transform 0.1s ease, border 0.1s ease; /* Smooth transition for scaling */
+        }
+
+        .uc-option input {
+            display: none;
+        }
+
+        .uc-option label {
+            display: block;
+            cursor: pointer;
+        }
+
+        .uc-option.selected {
+            transform: scale(0.95);
+            border: 3px solid #5009f6;
+        }
+
+        .uc-btn {
+            position: relative;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 2px solid #c0c0c0;
+            background-color: #eee6fe;
+            color: black;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .uc-btn:hover {
+            transform: scale(1.05);
+            color: white;
+            border: 2px solid #5009f6;
+            background-color: #5009f6;
+        }
+        .uc-btn:active{
+            transform: scale(0.9);
+        }
+        .uc-container p{
+            font-size: 15px;
+            font-weight: 500;
+            color: #333333;
+        }
+        .uc-container p a{
+            text-decoration: none;
+            color: #5009f6;
+        }
+        .uc-container p a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="uc-container">
+    <h1>Join as a client or freelancer</h1>
+    <form action="/select-role" method="POST">
+        <div class="uc-options">
+            <div class="uc-option" id="clientOption" onclick="selectRole('client')">
+                <input type="radio" id="client" name="role" value="client">
+                <label for="client">I'm a client, hiring for a project</label>
+            </div>
+            <div class="uc-option" id="freelancerOption" onclick="selectRole('freelancer')">
+                <input type="radio" id="freelancer" name="role" value="freelancer">
+                <label for="freelancer">I'm a freelancer, looking for work</label>
+            </div>
+        </div>
+        <button type="submit" class="uc-btn" id="applyButton">Apply</button>
+    </form>
+    
+    <p>Already have an account? <span><a href="/">Log In</a></span></p>
+</div>
+
+<script>
+
+    document.querySelectorAll('.uc-option').forEach(option => {
+    option.addEventListener('click', function() {
+        // Remove the 'selected' class from all options
+        document.querySelectorAll('.uc-option').forEach(opt => opt.classList.remove('selected'));
+
+        // Add the 'selected' class to the clicked option
+        this.classList.add('selected');
+
+        // Check the radio button inside the clicked option
+        const radio = this.querySelector('input[type="radio"]');
+        radio.checked = true;
+    });
+});
+    
+</script>
+
+</body>
+</html>

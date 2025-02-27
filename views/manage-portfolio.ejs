@@ -1,0 +1,67 @@
+<%- include("partials/header.ejs") %>
+<section class="manage-portfolio-edit-section">
+    <div>
+          <div class="portfolio-item new-item">
+              <div><button class="portfolio-item-btn" onclick="openForm()">+ Add New Portfolio Item</button></div>
+              <div class="portfolio-grid">
+                <% portfolioItems.forEach(item => { %>
+                    <div class="portfolio-item">
+                        <img src="<%= item.file_path %>" alt="Portfolio Item">
+                        <p><%= item.title %></p>
+                    </div>
+                <% }) %>
+              </div>
+          </div>
+          <div class="manage-portfolio-edit"  >
+            <!-- Hidden form to add a new portfolio item -->
+            <form id="portfolioForm" class="form-popup" action="/portfolio/add/<%= user.id %>" method="POST" enctype="multipart/form-data">
+                <div class="content-type">
+                  <label>Content Type:</label><br>
+                  <input type="radio" id="image" name="contentType" value="image" onclick="toggleFields()"> Image
+                  <input type="radio" id="article" name="contentType" value="article" onclick="toggleFields()"> Article
+                  <input type="radio" id="code" name="contentType" value="code" onclick="toggleFields()"> Code
+                  <input type="radio" id="video" name="contentType" value="video" onclick="toggleFields()"> Video
+                  <input type="radio" id="audio" name="contentType" value="audio" onclick="toggleFields()"> Audio
+                  <input type="radio" id="others" name="contentType" value="others" onclick="toggleFields()"> Others
+                </div>
+              
+                <div class="form-field">
+                  <label for="title">Title:</label>
+                  <input type="text" id="title" name="title" maxlength="60" required>
+                </div>
+              
+                <div class="form-field">
+                  <label for="description">Portfolio Item Description:</label>
+                  <textarea id="description" name="description" maxlength="1000" required></textarea>
+                </div>
+              
+                <!-- Code Sample Field -->
+                <div class="form-field" id="codeSampleField" style="display:none;">
+                  <label for="codeSample">Code Sample (Optional):</label>
+                  <textarea id="codeSample" name="codeSample" maxlength="2000"></textarea>
+                </div>
+              
+                <!-- Article Field -->
+                <div class="form-field" id="articleField" style="display:none;">
+                  <label for="article">Article Content:</label>
+                  <textarea id="article" name="article" maxlength="5000"></textarea>
+                </div>
+              
+                <!-- Upload File Field -->
+                <div class="form-field" id="uploadField" style="display:none;">
+                  <label for="uploadFile">Upload File (Optional, Max 20MB):</label>
+                  <input type="file" id="uploadFile" name="uploadFile">
+                </div>
+              
+                <div class="form-actions">
+                  <button type="submit">Save</button>
+                  <button type="button" onclick="window.history.back()">Cancel</button>
+                </div>
+              </form>
+            <!-- Taken from profile.ejs  -->
+            
+
+          </div>
+    </div>
+</section>
+<%- include("partials/footer.ejs") %>

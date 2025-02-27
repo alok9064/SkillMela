@@ -1,0 +1,653 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+  }
+  
+  .settings-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: #e8ebf0;
+  }
+  
+  .left-panel {
+    width: 25%;
+    background: #F6F8FA;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .left-panel h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #6528f7;
+    text-align: center;
+  }
+  
+  .settings-button {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 30px;
+    background: linear-gradient(60deg, #F6F8FA, #dccefd);
+    border: none;
+    cursor: pointer;
+    color: #6528f7;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .settings-button:hover {
+    transform: scale(1.05);
+    background-color: #966bfa;
+    color: black;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .icon {
+    margin-right: 15px;
+    font-size: 18px;
+  }
+  
+  .right-panel {
+    width: 75%;
+    padding: 40px;
+    overflow-y: auto;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 20px 0 0 20px;
+    position: relative;
+  }
+  
+  .right-panel h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .right-panel p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .right-panel-content {
+    display: none;
+    font-size: 18px;
+  }
+  
+  .info-section {
+    margin-top: 30px;
+  }
+  
+  .info-card {
+    background: #fafafa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .info-card h4 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #4a4a4a;
+  }
+  .info-card-div1{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+  }
+   .edit-btn {
+    /* position: relative; */
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #6528f7;
+    transition: color 0.2s;
+    margin-left: auto;
+    text-align: right;
+  }
+  
+  .edit-btn:hover {
+    color: #966bfa;
+  }
+  
+  .edit-section {
+    display: none;
+    padding-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background: #fafafa;
+    transition: border 0.3s;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: #6528f7;
+    outline: none;
+    background: #fff;
+  }
+  
+  .save-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    background-color: #6528f7;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .save-btn:hover {
+    background-color: #966bfa;
+    transform: translateY(-2px);
+  }
+  
+  .save-btn:active {
+    transform: translateY(0);
+  }
+  /* General background for the billing content */
+#billing-content {
+    display: none; /* hidden by default, until clicked */
+    background: linear-gradient(60deg, #F6F8FA, #dccefd);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for each billing card */
+  .billing-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .billing-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 45%; /* adjust the width based on your design */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for the billing card */
+  .billing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title for each section within the billing card */
+  .billing-card h4 {
+    color: #6528F7;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  /* Details in the billing card */
+  .billing-card p {
+    font-size: 1em;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  /* Button to add a billing method */
+  .add-method-btn {
+    background-color: #6528F7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the button */
+  .add-method-btn:hover {
+    background-color: #431ba8;
+  }
+/* General background for the Password & Security content */
+#password-content {
+  background: linear-gradient(60deg, #F6F8FA, #dccefd);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the security section */
+.security-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for each security card */
+.security-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Title for the security card */
+.security-card h4 {
+  color: #6528F7;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+/* Styling for individual security options */
+.security-option h5 {
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.security-option p {
+  margin-bottom: 8px;
+  color: #666;
+}
+
+/* Styling for suboptions like Authenticator app, mobile prompt, etc. */
+.security-suboption h6 {
+  color: #6528F7;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.security-suboption p {
+  font-size: 0.95em;
+  color: #333;
+}
+
+/* Buttons */
+.edit-btn {
+  background-color: #6528F7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #431ba8;
+}
+/* General styling for the Password and Security section */
+#password-content {
+    display: none;
+    background: linear-gradient(60deg, #F6F8FA, #dccefd);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .security-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .security-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  .security-card h4 {
+    color: #6528F7;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .auth-option h5 {
+    color: #6528F7;
+    margin-bottom: 5px;
+  }
+  
+  /* Verification options and text */
+  .verification-option p {
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  
+  .recommendation {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .status-enabled {
+    color: #6528F7;
+    font-weight: bold;
+  }
+  
+  /* Button styling */
+  .edit-btn, .setup-btn, .save-btn {
+    background-color: #6528F7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  .edit-btn:hover, .setup-btn:hover, .save-btn:hover {
+    background-color: #431ba8;
+  }
+  
+  /* Edit sections */
+  .edit-section {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  .edit-section label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .edit-section input, .edit-section select, .edit-section textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+    /* General styling for the membership section */
+
+  
+  /* Current Plan Styling */
+  .current-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .current-plan h4 {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .current-plan p {
+    color: #666;
+  }
+  
+  /* Upgrade Membership Button Styling */
+  .upgrade-btn {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upgrade-btn:hover {
+    background-color: #431ba8;
+  }
+  
+  /* Plan Benefits Styling */
+  .plan-benefits {
+    margin-top: 20px;
+  }
+  
+  .plan-benefits h4 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .plan-benefits ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .plan-benefits ul li {
+    font-size: 1em;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  
+  .plan-benefits ul li::before {
+    content: '✔';
+    color: #6528F7;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+/* General styling for the teams section */
+.right-panel-content {
+    background: linear-gradient(60deg, #F6F8FA, #dccefd);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Team Information Styling */
+  .team-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-details p {
+    margin: 0;
+    color: #333;
+  }
+  
+  .team-details p strong {
+    color: #6528F7;
+  }
+  
+  /* Edit Team Info Button Styling */
+  .edit-team-btn {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-team-btn:hover {
+    background-color: #431ba8;
+  }
+
+  /* General styling for the notification settings section */
+
+  
+  /* Notification Card Styling */
+  .notification-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-card h4 {
+    margin-top: 0;
+  }
+  
+  /* Notification Option Styling */
+  .notification-option {
+    margin-bottom: 20px;
+  }
+  
+  .notification-option h5 {
+    margin-bottom: 10px;
+    color: #6528F7;
+  }
+  
+  .notification-option label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .notification-option input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .email-mask {
+    color: #6528F7;
+    font-weight: bold;
+  }
+  
+  /* Radio Button Styling */
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+/* General styling for the members & permissions section */
+
+  
+  /* Member Card Styling */
+  .member-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .member-card h4 {
+    margin-top: 0;
+  }
+  
+  /* Member Info Styling */
+  .member-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .invite-btn {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .invite-btn:hover {
+    background-color: #5b1dcd;
+  }
+  
+  /* Invitations Section Styling */
+  .invitations-section {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Search Section Styling */
+  .search-section {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+    /* General styling for the connected services section */
+
+  
+  /* Service Card Styling */
+  .service-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Service Info Styling */
+  .service-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .service-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+  }
+  
+  /* Continue Button Styling */
+  .continue-btn {
+    background-color: #6528F7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .continue-btn:hover {
+    background-color: #5b1dcd;
+  }
+  

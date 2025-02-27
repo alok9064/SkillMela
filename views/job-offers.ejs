@@ -1,0 +1,36 @@
+
+<%- include("partials/header.ejs") %>
+
+    <section class="noti-section">
+        <div class="noti-container">
+            <h1>Your<span style="color: #6528F7;"> Job Offers</span></h1>
+    
+                <div class="noti-offers-container">
+                    <% if (offers.length > 0) { %>
+                        <ul class="noti-offer-list">
+                            <% offers.forEach(offer => { %>
+                                <li class="noti-offer">
+                                    <h2 style="color: #6528F7;" ><%= offer.job_title %></h2>
+                                    <p><strong>Client:</strong> <%= offer.name %></p>
+                                    <p><strong>Scope:</strong> <%= offer.scope %></p>
+                                    <p><strong>Deadline:</strong> <%= offer.deadline %></p>
+            
+                                    <div class="noti-actions">
+                                        <form action="/job-offers/<%= offer.hire_id %>/accept" method="POST">
+                                            <button class="noti-accept-btn">Accept</button>
+                                        </form>
+                                        <form action="/job-offers/<%= offer.hire_id %>/reject" method="POST">
+                                            <button class="noti-reject-btn">Reject</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% } else { %>
+                        <p>No job offers at the moment.</p>
+                    <% } %>
+                </div>
+        </div>
+    </section>
+
+<%- include("partials/footer.ejs") %>

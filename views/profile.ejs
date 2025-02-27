@@ -1,0 +1,193 @@
+
+<%- include("partials/header.ejs") %>
+
+    <section class="dashboard">
+            <div class="dashboard-img-container">
+
+                <% if (profile.cover_photo === null) { %>
+                    <img src="/images/cover.jpg" alt="Profile" class="cover-photo">
+                <% } else { %>
+                    <img src="<%= profile.cover_photo %>" alt="Profile" class="cover-photo">
+                <% } %>
+                <button class="button1" onclick="showCoverModal()">Update Cover Photo</button>
+                <button class="button2" onclick="showProfileModal()">Update Profile photo!</button>
+                <div class="photo">
+                    <% if (profile.profile_photo === null) { %>
+                        <img src="/images/user.jpg" alt="Profile" class="profiel-img">
+                    <% } else { %>
+                        <img src="<%= profile.profile_photo %>" alt="Profile" class="profiel-img">
+                    <% } %> 
+                </div>
+                <!-- Cover Photo Modal -->
+                <div id="coverModal" class="modal">
+                    <div class="modal-content">
+                        <h3>Update Cover Photo</h3>
+                        <form action="/upload-cover-photo/<%= profile.user_id %>" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="coverPhoto" required><br><br>
+                            <button type="submit" class="save-btn">Save</button>
+                            <button type="button" class="cancel-btn" onclick="hideCoverModal()">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Profile Photo Modal -->
+                <div id="profileModal" class="modal">
+                    <div class="modal-content">
+                        <h3>Update Profile Photo</h3>
+                        <form action="/upload-profile-photo/<%= profile.user_id %>" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="profilePhoto" required><br><br>
+                            <button type="submit" class="save-btn">Save</button>
+                            <button type="button" class="cancel-btn" onclick="hideProfileModal()">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- general and add profiel -->
+            <div class="general-addProfiel">
+                <!-- <button class="button1 general-addProfiel-button">General</button> -->
+                <!-- <button class="button2 general-addProfiel-button">Add Profile Picture</button> -->
+                <a href="/edit-profile/<%= profile.user_id %>" class="button3 general-addProfiel-button" >Edit Profile</a>
+            </div>
+
+            <div class="userId_star_edit_verify">
+                <div class="user_id">
+                    <h1><%= profile.first_name %> <%= profile.last_name %></h1>
+                    <!-- Rating -->
+                    <p>
+                        <strong>
+                            <span class="stars">
+                                <span class="full-stars"><%= generateStars(profile.rating) %></span> <%= Math.floor(profile.rating) %>/5 (<%= profile.rating_count %>)
+                            </span>
+                        </strong>
+                    </p>
+
+                    <!-- starrr start -->
+                    <div class="bio">
+                        <p><%= profile.bio %></p>
+                    </div>
+    <!-- flag -->    
+                <div class="about-container">
+                    <div class="about">
+                        <h3>About </h3>
+                    </div>
+                    <div class="add-about"><%= profile.about %></div>
+                </div>
+                </div>
+                <div class="verify">
+                    <div class="verification">
+                        <div class="main" >
+                            <div class="up">
+                                <button class="card1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="linkedin" height="1.6em" viewBox="0 0 448 512"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"></path></svg>                              </button>
+                                <button class="card2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px" height="30px" class="twitter"><path d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"></path></svg>
+                                </button>
+                            </div>
+                            <div class="down">
+                                <button class="card3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px" class="github">    <path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path></svg>
+                                </button>
+                                <button class="card4">
+                                    <svg height="30px" width="30px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="discord"><path d="M40,12c0,0-4.585-3.588-10-4l-0.488,0.976C34.408,10.174,36.654,11.891,39,14c-4.045-2.065-8.039-4-15-4s-10.955,1.935-15,4c2.346-2.109,5.018-4.015,9.488-5.024L18,8c-5.681,0.537-10,4-10,4s-5.121,7.425-6,22c5.162,5.953,13,6,13,6l1.639-2.185C13.857,36.848,10.715,35.121,8,32c3.238,2.45,8.125,5,16,5s12.762-2.55,16-5c-2.715,3.121-5.857,4.848-8.639,5.815L33,40c0,0,7.838-0.047,13-6C45.121,19.425,40,12,40,12z M17.5,30c-1.933,0-3.5-1.791-3.5-4c0-2.209,1.567-4,3.5-4s3.5,1.791,3.5,4C21,28.209,19.433,30,17.5,30z M30.5,30c-1.933,0-3.5-1.791-3.5-4c0-2.209,1.567-4,3.5-4s3.5,1.791,3.5,4C34,28.209,32.433,30,30.5,30z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- gap2 -->
+        
+
+
+        <!-- portfolio -->
+        <section class="portfolio-section">
+            <div class="portfolio">
+                <div class="portfolio-head"><H1>Portfolio</H1></div>
+                <% if (portfolioItems) { %>
+                <div class="portfolio-grid">
+                    <% portfolioItems.forEach(item => { %>
+                        <div class="portfolio-item">
+                            <img src="<%= item.file_path %>" alt="Portfolio Item">
+                            <p><%= item.title %></p>
+                        </div>
+                    <% }) %>
+                </div>
+                <% } else { %>
+                <div class="portfolio-item">
+                    <div class="portfolio-reviwes-photo">
+                        <img class="img" src="/images/portfolio.png" >
+                    </div>
+                    <div class="portfolio-review-parah">
+                        <h4>No Portfolio to see here!</h4>
+                    </div>
+                </div>
+                <% } %>
+                <button onclick="window.location.href='/manage-portfolio/<%= user.id %>'">Manage portfolio</button>
+            </div>
+        </section>
+        
+        <!-- reviwes -->
+        <section class="review-section">
+            <div class="reviwes-heading">
+                <div>
+                    <h1>0.0 ·0 Reviews</h1>
+                </div>
+                <div class="reviews-heading-photo">
+                    <div class="review-item">
+                        <img class="img" src="/images/review.png" >
+                    </div>
+                    <div class="review-parah">
+                        <h4>No reviews to see here!</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All-deteals -->
+        <section class="details-section">
+            <div class="deteals">
+                <div class="Experience deteals-items">
+                    <div class="details-un">
+                        <H1>Experience</H1>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg> Add-Experience!</button>
+                    </div>
+                    <div class="Add-Experience">
+                        <p>No experiences have been added.</p>
+                    </div>
+                </div>
+                
+                <div class="Education deteals-items">
+                    <div class="details-un">
+                        <h1>Education</h1>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg> Add-Education!</button>
+                    </div>
+                    <div class="Add-Education">
+                        <p>No education information has been added.</p>
+                    </div>
+                </div>
+                
+                <div class="Qualifications deteals-items">
+                    <div class="details-un">
+                        <h1>Qualifications</h1>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg> Add-Qualifications!</button>
+                    </div>
+                    <div class="Add-Qualifications">
+                        <p>No qualifications have been added.</p>
+                    </div>
+                </div>
+                
+                <div class="Certifications deteals-items">
+                    <div class="details-un">
+                        <h1>Certifications</h1>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg> Add-Certifications!</button>
+                    </div>
+                    <div class="Add-Certifications">
+                        <p>No certifications have been added.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+        
+        <%- include("partials/footer.ejs") %>

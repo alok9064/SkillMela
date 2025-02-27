@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMela</title>
+    
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/learn.css">
+    <link rel="stylesheet" href="/styles/practice.css">
+    <link rel="stylesheet" href="/styles/practice-start.css">
+    <link rel="stylesheet" href="/styles/mentorship.css">
+    <link rel="stylesheet" href="/styles/compete.css">
+    <link rel="stylesheet" href="/styles/contest.css">
+    <link rel="stylesheet" href="/styles/freelancing.css">
+    <!-- <link rel="stylesheet" href="/styles/freelancers.css"> -->
+    <link rel="stylesheet" href="/styles/social.css">
+    <link rel="stylesheet" href="/styles/signup.css">
+    <link rel="stylesheet" href="/styles/signin.css">
+    <link rel="stylesheet" href="/styles/forgot.css">
+    <link rel="stylesheet" href="/styles/profile.css">
+    <link rel="stylesheet" href="/styles/edit-profile.css">
+    <link rel="stylesheet" href="/styles/manage-portfolio.css">
+    <link rel="stylesheet" href="/styles/job-details.css">
+    <link rel="stylesheet" href="/styles/job-offers.css">
+    <link rel="stylesheet" href="/styles/project-dashboard.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<header>
+    <nav class="navbar">
+      
+        <div class="active-toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="nav-item1">
+            <a href="/">
+              <!-- <img class="nav-logo" src="/images/logo.png"> -->
+               <h2>Skill<span style="color: #6528F7;">Mela</span></h2>
+            </a>
+        </div>
+        <!-- /* From Uiverse.io by LightAndy1 */  -->
+        <div class="group">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+            <g>
+              <path
+                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+              ></path>
+            </g>
+          </svg>
+          <input class="input" type="search" placeholder="Search" />
+        </div>
+
+        <div class="nav-item2">
+            <a href="/learn">Learn</a>
+            <a href="/practice">Practice</a>
+            <a href="/mentorship">Mentorship</a>
+            <a href="/compete">Compete</a>
+            <a href="/freelancing">Freelancing</a>
+            <a href="/social">Social</a>
+        </div>
+
+        <div class="nav-notifications">
+          <a href="/job-offers">
+              <span class="notification-icon"><i class="fa-solid fa-bell" style="color: #6528F7;"></i></span>
+
+              
+          </a>
+        </div>
+        
+        
+          <% if (typeof user !== 'undefined' && user) { %>
+              <div class="nav-item3">
+                <% if (profile.profile_photo === null) { %>
+                  <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } else { %>
+                  <img src="<%= profile.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+                <% } %>  
+                  <div id="dropdownMenu" class="dropdown-content">
+                      <a href="/profile/<%= user.id %>">Profile</a>
+                      <a href="/project-dashboard/<%= user.id %>">Project Dashboard</a>
+                      <a href="/job-offers">Notifications</a>
+                      <a href="/settings">Settings</a>
+                      <a href="/logout">Logout</a>
+                  </div>
+              </div>
+          <% } else { %>
+            <div class="nav-item2-sign">
+              <a class="nav-item2-signin" href="/signin">Login</a>
+              <a class="nav-item2-signup" href="/signup">Sign Up</a>
+            </div>
+          <% } %>
+
+                
+            
+    </nav>
+
+    <div class="active-dropdown_menu">
+      <a href="/learn">Learn</a>
+      <a href="/practice">Practice</a>
+      <a href="/mentorship">Mentorship</a>
+      <a href="/compete">Compete</a>
+      <a href="/freelancing">Freelancing</a>
+      <a href="/social">Social</a>
+    </div>
+
+</header>
+<body>
+    <main>
+
+    
+    

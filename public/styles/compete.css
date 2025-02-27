@@ -1,0 +1,314 @@
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.compete-section {
+    padding: 100px;
+}
+
+.contests-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.all-contests {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.buttons button {
+    background-color: #6528F7;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #1db954;
+    transform: translateY(-10px); /* This moves the button up */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+}
+
+.contests-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+}
+
+.active-contests, .upcoming-contests {
+    width: 40%;
+    /* background-color: #86b4a9; */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contest-card, .challenge-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.contest-name, .challenge-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contest-status, .challenge-date {
+    display: block;
+    margin-top: 5px;
+    color: #a0a0a0;
+}
+
+.view-details-btn, .register-btn {
+    background-color: #6528F7;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-details-btn:hover, .register-btn:hover {
+    background-color: #148f3d;
+}
+
+hr {
+    opacity: 0.5;
+}
+
+.hiring-challenge {
+    /* background-color: #86b4a9; */
+    padding: 20px;
+    border-radius: 10px;
+    /* margin-top: 30px; */
+    /* width: 600px; */
+    height: 300px;
+}
+
+.registration-info {
+    display: block;
+    margin-top: 10px;
+    color: #a0a0a0;
+}
+
+
+.contest-container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+
+
+
+
+/* Archived Contests - Horizontal Scroll */
+.contest-row {
+    display: flex;
+    overflow-x: auto; /* Allows horizontal scrolling */
+    padding-bottom: 10px;
+    gap: 20px; /* Space between cards */
+}
+
+.contest-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.contest-row::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.contest-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    min-width: 250px; /* Set minimum width for each card */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.contest-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #343a40;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contest-status {
+    font-size: 14px;
+    color: #6c757d;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.view-challenges-btn {
+    background-color: #6528F7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    
+}
+
+.view-challenges-btn:hover {
+    background-color: #0056b3;
+    
+    transform: translateY(-10px); /* This moves the button up */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+}
+
+/* College Contests - Grid Layout */
+.contest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+
+
+/* Shared styles for both Archived Contests and College Contests */
+.contest-row {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding-bottom: 10px;
+    gap: 20px; /* Space between cards */
+}
+
+/* Scrollbar styling for better look */
+.contest-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.contest-row::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.contest-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    min-width: 250px; /* Minimum width for each card */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+/* Button and other styling remains the same */
+.view-challenges-btn {
+    background-color: #6528F7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.view-challenges-btn:hover {
+    background-color: #0056b3;
+}
+/* Archived Contests Section */
+.archived-contests-section {
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.archived-contest-row {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    gap: 20px; /* Space between contest cards */
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+
+.archived-contest-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    min-width: 250px; /* Minimum width for each card */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.archived-contest-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.archived-contest-row::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+/* College Contests Section */
+.college-contests-section {
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.college-contest-row {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    gap: 20px; /* Space between contest cards */
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+
+.college-contest-card {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    min-width: 250px; /* Minimum width for each card */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.college-contest-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.college-contest-row::-webkit-scrollbar-thumb {
+    background-color: #28a745;
+    border-radius: 10px;
+}
+
+/* Button styling (shared across both sections) */
+.view-challenges-btn {
+    background-color: #6528F7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.view-challenges-btn:hover {
+    background-color: #347e3b;
+}

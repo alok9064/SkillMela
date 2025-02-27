@@ -1,0 +1,1001 @@
+
+
+.job-cl-profile-section {
+    padding-top: 90px;
+    color: black;
+    background: linear-gradient(60deg, #dccefd, #F6F8FA);
+}
+
+/* ......Cover photo....... */
+.job-cl-profile-item1{
+    height: auto;
+    width: auto;
+    margin: 0 150px 30px 150px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+.job-cl-profile-item1 img{
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.job-cl-profile-item2{
+    height: auto;
+    width: auto;
+    margin: 0 150px 15px 150px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr;
+    gap: 15px;
+}
+
+
+/* ........left card section........ */
+
+.job-cl-profile-card {
+    max-height: 800px;
+    width: auto;
+    border: 0.5px solid #cbc9c9;
+    border-radius: 15px;
+    background-color: white;
+}
+
+
+/* box1 */
+.job-cl-card-box1{
+    width: 100%;
+    height: auto;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbc9c9;
+}
+.job-cl-profile-card .job-cl-card-box1 .job-cl-card-border-top {
+    width: auto;
+    height: 10px;
+    background: #cbb5fc;
+    margin: 0 70px;
+    border-radius: 0px 0px 15px 15px;
+}
+.job-cl-card-person-information h1{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    
+}
+.job-cl-rating {
+    text-align: center;
+}
+.job-cl-card-person-information h2 {
+    font-size: 15px;
+    font-weight: 200;
+    color: #575757;
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+}
+.job-cl-card-person-information h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+}
+.job-cl-profile-card .job-cl-card-box1 .img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 25px;
+}
+.job-cl-profile-card .job-cl-card-box1 img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    margin: auto;
+}
+.job-cl-profile-card .job-cl-card-get{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.job-cl-profile-card .job-cl-card-box1 .job-cl-card-get-button {
+    height: auto;
+    width: 100%;
+    margin: 10px 15px 10px 15px ;
+    text-align: center;
+    padding: 8px 25px;
+    border-radius: 30px;
+    border: none;
+    background-color: #6528f7;
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.job-cl-profile-card .job-cl-card-box1 .job-cl-card-get-button:hover {
+    transform: scale(1.03);
+    background-color: #966bfa;
+    color: black;
+}
+.job-cl-profile-card .job-cl-card-box1 .job-cl-card-get-button:active{
+    transform: scale(0.9);
+}
+.job-cl-profile-card .job-cl-card-get .job-cl-favorite-reaction{
+    color: #575757;
+}
+.job-cl-profile-card .job-cl-card-get p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+}
+
+
+/* box2 */
+.job-cl-card-box2{
+    height: auto;
+    width: auto;
+    padding: 15px;
+}
+.job-cl-card-profile-items{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .9rem;
+}
+.job-cl-profile-item-def{
+    width: 66%;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.job-cl-profile-item-data{
+    margin-left: auto;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+
+/* box3 */
+.job-cl-card-box3{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px;
+    border-top: 0.5px solid #cbc9c9;
+    border-bottom: 0.5px solid #cbc9c9;
+}
+.job-cl-card-box3-View-Website{
+    font-weight: 400;
+}
+.job-cl-card-box3-View-Website a{
+    color: #4677f3;
+    text-decoration: none;
+}
+.job-cl-card-box3-View-Website a:hover{
+    text-decoration: underline;
+}
+.job-cl-card-box3-View-linkedin {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 0.5px solid #0274b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    text-align: right;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.job-cl-card-box3-View-linkedin a {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.job-cl-card-box3-View-linkedin i{
+    height: 100%;
+    width: 100%;
+    color: #0274b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.job-cl-card-box3-View-linkedin :hover{
+    background-color: #0274b3;
+}
+.job-cl-card-box3-View-linkedin i:hover{
+    color: white;
+}
+.job-cl-card-box3-View-linkedin a {
+    text-decoration: none;
+}
+
+
+/* box4 */
+/* Share buttons */
+.job-cl-card-box4{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.job-cl-tooltip-container {
+    background: rgb(3, 169, 244);
+    background: linear-gradient(138deg, rgb(0, 0, 0) 15%, rgb(0, 31, 46) 65%);
+    position: relative;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 0.7em 0.7em;
+    border-radius: 50px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.job-cl-tooltip-container:hover {
+    background: #fff;
+    transition: all 0.9s;
+}
+.job-cl-tooltip-container .job-cl-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: #fff;
+    transition: all 0.2s;
+}
+.job-cl-tooltip-container:hover .job-cl-text {
+    fill: rgb(0, 0, 0);
+    transition: all 0.9s;
+}
+
+/* Inicio do tooltip twitter */
+.job-cl-tooltip1 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    background: #000000;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip1 {
+    top: 150%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    border-radius: 50px;
+    transform: translate(-50%, -5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-cl-tooltip-container:hover .job-cl-tooltip1:hover {
+    background: #03a9f4;
+    fill: #fff;
+}
+/* Fim do tooltip twitter */
+
+/* Inicio do tooltip facebook */
+.job-cl-tooltip2 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip2 {
+    top: -120%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(-50%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip2:hover {
+    background: #001722;
+    fill: #fff;
+}
+/* Fim do tooltip facebook */
+
+/* Inicio do tooltip whatsApp */
+.job-cl-tooltip3 {
+    position: absolute;
+    top: 100%;
+    left: 60%;
+    transform: translateX(80%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip3 {
+    top: 10%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(85%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-cl-tooltip-container:hover .job-cl-tooltip3:hover {
+    background: #1db954;
+    fill: #000000;
+}
+/* Fim do tooltip whatsApp */
+
+/* Inicio do tooltip Discord */
+.job-cl-tooltip4 {
+    position: absolute;
+    top: 100%;
+    left: -190%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip4 {
+    top: 10%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-cl-tooltip-container:hover .job-cl-tooltip4:hover {
+    background: #8c9eff;
+    fill: #fff;
+}
+/* Fim do tooltip Discord */
+
+/* Inicio do tooltip pinterest */
+.job-cl-tooltip5 {
+    position: absolute;
+    top: 100%;
+    left: -145%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip5 {
+    top: -78%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-cl-tooltip-container:hover .job-cl-tooltip5:hover {
+    background: #bd081c;
+    fill: #fff;
+}
+/* Fim do tooltip pinterest */
+
+/* Inicio do tooltip dribbble */
+.job-cl-tooltip6 {
+    position: absolute;
+    top: 100%;
+    left: 35%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip6 {
+    top: -79%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-cl-tooltip-container:hover .job-cl-tooltip6:hover {
+    background: #ea4c89;
+    fill: #fff;
+}
+/* Fim do tooltip dribbble */
+
+/* Inicio do tooltip github */
+.job-cl-tooltip7 {
+    position: absolute;
+    top: 100%;
+    left: 39%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip7 {
+    top: 104%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-cl-tooltip-container:hover .job-cl-tooltip7:hover {
+    background: #000;
+    fill: #fff;
+}
+/* Fim do tooltip github */
+
+/* Inicio do tooltip reddit */
+.job-cl-tooltip8 {
+    position: absolute;
+    top: 100%;
+    left: -150%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    fill: #001722;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip8 {
+    top: 101%;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-cl-tooltip-container:hover .job-cl-tooltip8:hover {
+    background: #ff4500;
+    fill: #fff;
+}
+/* Fim do tooltip reddit */
+
+/* Inicio do tooltip fixo */
+.job-cl-tooltip9 {
+    position: absolute;
+    top: 0;
+    left: -115%;
+    opacity: 0;
+    visibility: hidden;
+    width: 150px;
+    height: 150px;
+    z-index: -1;
+}
+
+.job-cl-tooltip-container:hover .job-cl-tooltip9 {
+    /* top: -110%; */
+    opacity: 1;
+    visibility: visible;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+/* box5 */
+.job-cl-card-box5{
+    height: auto;
+    width: auto;
+    padding: 15px;
+    border-top: 0.5px solid #cbc9c9;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.job-cl-card-box5 .job-cl-card-box5-item1{
+    height: auto;
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.job-cl-card-box5-item1 .job-cl-bids-free-member{
+    width: auto;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+}
+.job-cl-card-box5-item1 .job-cl-bids-insights{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    text-align: right;
+    text-decoration: none;
+    color: rgb(246, 82, 12);
+}
+.job-cl-card-box5 .job-cl-card-box5-item2{
+    font-size: 17px;
+    font-weight: 400;
+    color: #333333;
+}
+.job-cl-card-box5 .job-cl-card-box5-item2 .span1{
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+}
+
+
+
+/* .....Right side section..... */
+
+.job-cl-profile-description{
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border: 0.5px solid #cbc9c9;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* description */
+.job-cl-profile-description-project-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.job-cl-profile-description-project-name h1{
+    font-size: 30px;
+    font-weight: 600;
+}
+.job-cl-profile-description-project-name h2{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #3c3c3c;
+}
+.job-cl-profile-description-project-name p{
+    min-height: 50px;
+    margin-top: 20px;
+    color: #4a4a4a;
+}
+
+/* ......Overview...... */
+.job-cl-profile-description .job-cl-profile-Overview{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+/* skills */
+.job-cl-profile-description-skills{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 500px;
+    width: auto;
+    min-height: 50px;
+    margin-top: 20px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.job-cl-profile-description-skills h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.job-cl-about-techstack{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+.job-cl-about-techstack li{
+    height: auto;
+    width: auto;
+    margin: 0 10px 10px 0;
+    padding: 4px 12px;
+    border: 0.5px solid #6e6d6d;
+    border-radius: 30px;
+    display: flex;
+    text-decoration: none;
+    background-color: #f5f5f0;
+}
+.job-cl-about-techstack li p{
+    font-size: 15px;
+    height: auto;
+    width: auto;
+    text-decoration: none;
+    color: #6e6d6d;
+    background: transparent;
+}
+
+/* About */
+.job-cl-profile-description-about{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.job-cl-profile-description-about h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.job-cl-profile-description-about p{
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+
+/* Work Terms */
+.job-cl-profile-description-work-terms{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.job-cl-profile-description-work-terms h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.job-cl-profile-description-work-terms p{
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+
+/* attachment */
+.job-cl-profile-description-attachment{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.job-cl-profile-description-attachment h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333333;
+}
+.job-cl-profile-description-attachment h1 span{
+    color: #525151;
+}
+.job-cl-profile-description-attachment-pdf{
+    display: flex;
+    justify-content: flex-start;
+    border-radius:10px;
+}
+.job-cl-profile-description-attachment-pdf i{
+    height: auto;
+    width: auto;
+    font-size: 70px;
+    color: #afafaf;
+}
+/* Send Proposal */
+.job-cl-profile-description-proposal {
+    border-bottom: 0.5px solid #cbb5fc;
+    padding: 20px 0;
+}
+.job-cl-proposal {
+    margin: 10px 0;
+    color: #333;
+}
+
+#bid-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 10px 0;
+  }
+  .bid-plan {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    border: 1px solid #333;
+    border-radius: 15px;
+    /* align-items: center; */
+    padding: 30px 0;
+    
+  }
+  .bid-plan label {
+    font-weight: bold;
+  }
+  .bid-proposal-section {
+    padding: 20px 50px;
+    /* margin-top: 50px; */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* align-items: center; */
+    
+  }
+  .bid-input-group {
+    display: flex;
+    flex-direction: column;
+    /* align-items: baseline; */
+    gap: 1rem;
+    /* margin-right: 30px; */
+  }
+  
+  .bid-currency-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .bid-currency-input input {
+    border: none;
+    outline: none;
+    width: 60px;
+    text-align: right;
+  }
+  
+  .bid-input-group input[type="number"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .bid-input-group input:invalid {
+    border-color: red;
+  }
+  
+  .bid-input-group input:valid {
+    border-color: green;
+  }
+  
+  .bid-error-message {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  #paid-amount {
+    font-weight: bold;
+    color: #333;
+  }
+  .bid-proposal-text {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
+    gap: 1rem;
+  }
+  .bid-proposal-text button {
+    padding: 10px 20px;
+    background-color: #6528f7;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    color: white;
+  }
+  
+
+/* .....Feedbacks..... */
+.job-cl-profile-description .job-cl-profile-feedbacks{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0 10px 0;
+}
+.job-cl-profile-description-feedbacks{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+}
+.job-cl-profile-description-feedbacks h1{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: #6e6d6d;
+}
+.job-cl-profile-description-feedbacks ul{
+    display: flex;
+    flex-direction: column;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li{
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 0.5px solid #cbb5fc;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li img{
+    height: 50px;
+    width: 50px;
+}
+.frejob-cle-profile-description-feedbacks .job-cl-feedback-item li .job-cl-feedback-comment{
+    margin-left: 15px;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li h1{
+    color: #6e6d6d;
+    font-size: 15px;
+    margin: 0;
+    font-weight: 400;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li h1 a{
+    font-size: 20px;
+    font-weight: 600;
+    color: #0274b3;
+    text-decoration: none;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li h1 a:hover{
+    text-decoration: underline;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li p{
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li h2{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 0;
+    color: #4a4a4a;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li h2 a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0;
+    color: #0274b3;
+}
+.job-cl-profile-description-feedbacks .job-cl-feedback-item li h2 a:hover{
+    text-decoration: underline;
+}
+
+
+
+/* ..........Media......... */
+
+@media(max-width: 1290px){
+    .job-cl-profile-item1{
+        margin: 0 15px 30px 15px;
+    }
+    .job-cl-profile-item2{
+        margin: 0 80px 15px 80px;
+    }
+}
+
+@media(max-width: 1260px){
+    .job-cl-profile-item1{
+        margin: 0 50px 20px 80px;
+    }
+    .job-cl-profile-item1 img{
+        height: 200px;
+    }
+    .job-cl-profile-item2{
+        margin: 0 30px 15px 30px;
+    }
+}
+
+@media(max-width: 1170px){
+    .job-cl-profile-item1{
+        margin: 0 15px 10px 15px;
+    }
+    .job-cl-profile-item1 img{
+        height: 150px;
+    }
+    .job-cl-profile-item2{
+        margin: 0 5px 15px 5px;
+    }
+}
+
+@media(max-width: 1111px){
+    .job-cl-profile-card {
+        max-height: 760px;
+    }
+    .job-cl-card-box5-item1 .job-cl-bids-free-member{
+        font-size: 15px;
+    }
+    .job-cl-card-box5-item1 .job-cl-bids-insights{
+        font-size: 15px;
+    }
+    .job-cl-card-box5 .job-cl-card-box5-item2{
+        font-size: 15px;
+    }
+    .job-cl-card-box5 .job-cl-card-box5-item2 .span1{
+        font-size: 13px;
+    }
+    .job-cl-card-profile-items{
+        font-size: .69rem;
+    }
+    .job-cl-free-profile-item1 img{
+        height: 120px;
+    }
+}
+
+@media(max-width: 900px){
+    .job-cl-profile-item1 img{
+        height: 0;
+        width: 0;
+    }
+    .job-cl-profile-card {
+        max-height: 800px;
+    }
+    .job-cl-profile-item2{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .job-cl-card-profile-items{
+        font-size: .9rem;
+    }
+}

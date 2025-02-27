@@ -1,0 +1,42 @@
+.noti-section  {
+    height: 100vh;
+    padding-top: 90px;
+}
+.noti-container {
+    margin: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.noti-offers-container {
+    margin: 30px;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border: 1px solid #baaed4;
+    border-radius: 15px;
+    background: linear-gradient(60deg, #F6F8FA,#dccefd);
+    
+}
+.noti-offer p {
+    padding-top: 0.5rem;
+}
+.noti-actions {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+}
+.noti-actions button {
+    padding: 8px 12px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: #6528F7;
+    color: white;
+}
+

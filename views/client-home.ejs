@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Home</title>
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/client-home.css"> <!-- CSS file for styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<header>
+  <nav class="navbar">
+      <div class="active-toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="nav-item1">
+          <a href="/client-home/<%= client.id %>"><h2>Skill<span style="color: #6528F7;">Mela</span></h2></a>
+      </div>
+      <!-- /* From Uiverse.io by LightAndy1 */  -->
+      <div class="group">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+          <g>
+            <path
+              d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+            ></path>
+          </g>
+        </svg>
+        <input class="input" type="search" placeholder="Search" />
+      </div>
+
+      <div class=" nav-item2">
+          <a href="/job/<%= client.id %>">Jobs</a>
+          <a href="/talents">Talents</a>
+          <a href="/messaging">Messaging</a>
+          <a href="/client-social">Social</a>
+      </div>
+      
+      
+        <% if (typeof client !== 'undefined' && client) { %>
+            <div class="nav-item3">
+              <% if (client_profile.profile_photo === null) { %>
+                <img src="/images/user.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } else { %>
+                <img src="<%= client_profile.profile_photo %>" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+              <% } %>  
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="/client-profile/<%= client.id %>">Profile</a>
+                    <a href="/client-settings/<%= client.id %>">Settings</a>
+                    <a href="/client-proj-dashboard/<%= client.id %>">Project Dashboard</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        <% } else { %>
+          <div class="nav-item2-sign">
+            <a class="nav-item2-signin" href="/signin">Login</a>
+            <a class="nav-item2-signup" href="/signup">Sign Up</a>
+          </div>
+        <% } %>
+  </nav>
+  <div class="active-dropdown_menu">
+    <a href="/job/<%= client.id %>">Jobs</a>
+    <a href="/talents">Talents</a>
+    <a href="/messaging">Messaging</a>
+    <a href="/client-social">Social</a>
+  </div>
+</header>
+<body>
+  <section class="your-jobs-section">
+    <div class="heading-and-button">
+      <% if(jobs.length>0) {%>
+        <h2>Your Posted <span style="color: #6528F7;">Jobs</span></h2>
+      <% } else { %>
+        <h2>No Jobs posted by you.</h2>
+      <% } %>
+      <!-- <h2>Your Posted <span style="color: #6528F7;">Jobs</span></h2> -->
+      <button class="home-post-job-btn" onclick="window.location.href='/job/<%= client.id %>'">Post a Job</button>
+    </div>
+
+    <div class="home-jobs-container">
+      <% if(jobs.length>0) {%>
+        <% jobs.forEach((job) => { %>
+          <div class="home-job-card">
+            <h3 class="home-job-title"><%= job.title %></h3>
+            <p class="home-job-status">
+               
+              <% if (job.status === 'open') { %>
+                <span class="home-status-indicator"></span> Hiring
+              <% } else if (job.status === 'closed') { %>
+                Closed
+              <% } %>
+            </p>
+            <% if (job.status === 'open') { %>
+              <p class="proposals-message">You have <%= job.proposals %> new proposals</p>
+              <button class="home-review-btn" onclick="window.location.href='/applicants/<%= job.job_id %>'">Review Proposals</button>
+            <% } else if (job.status === 'closed') { %>
+              <p class="proposals-message">You had <%= job.proposals %> proposals</p>
+              <button class="home-review-btn" onclick="window.location.href='/applicants/<%= job.job_id %>'">View Proposals</button>
+            <% } %>
+            
+  
+          </div>
+          <% }) %>
+      
+      <% } %>
+    </div>
+  </section>
+
+  <script>
+    // DROPDOWN
+    function toggleDropdown() {
+        document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-pic')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+    // NAVBAR RESPONSIVENESS 
+
+    const res_toggleBtn = document.querySelector('.active-toggle_btn')
+    const res_toggleBtnIcon = document.querySelector('.active-toggle_btn i')
+    const res_dropDownMenu = document.querySelector('.active-dropdown_menu')
+
+    res_toggleBtn.onclick = function() {
+        res_dropDownMenu.classList.toggle('open')
+        const res_isOpen = res_dropDownMenu.classList.contains('open')
+
+        res_toggleBtnIcon.classList = res_isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+    }
+  </script>
+</body>
+</html>

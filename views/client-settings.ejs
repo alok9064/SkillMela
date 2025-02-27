@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Page</title>
+  <link rel="stylesheet" href="/styles/client-settings.css">
+</head>
+<body>
+
+  <div class="settings-container">
+    <div class="left-panel">
+      <h2>Settings</h2>
+      <button class="settings-button" onclick="showContent('info')">
+        <i class="icon">👤</i> My Info
+      </button>
+      <button class="settings-button" onclick="showContent('billing')">
+        <i class="icon">💳</i> Billing and Payments
+      </button>
+      <button class="settings-button" onclick="showContent('password')">
+        <i class="icon">🔒</i> Password and Security
+      </button>
+      <button class="settings-button" onclick="showContent('membership')">
+        <i class="icon">🏅</i> Membership Settings
+      </button>
+      <button class="settings-button" onclick="showContent('teams')">
+        <i class="icon">👥</i> Teams
+      </button>
+      <button class="settings-button" onclick="showContent('notification')">
+        <i class="icon">🔔</i> Notification Settings
+      </button>
+      <button class="settings-button" onclick="showContent('members-permissions')">
+        <i class="icon">🔐</i> Members and Permissions
+      </button>
+      <button class="settings-button" onclick="showContent('connected-services')">
+        <i class="icon">🔗</i> Connected Services
+      </button>
+      <button class="settings-button" onclick="window.location.href='/logout';">
+        <i class="icon">🔐</i> Logout
+      </button>
+      <!-- Add the other buttons here -->
+    </div>
+
+    <div class="right-panel" id="content-panel">
+      <div id="info-content" class="right-panel-content">
+        <h3>My Info</h3>
+        <div class="info-section">
+          <div class="info-card">
+            <div class="info-card-div1">
+              <h4>Account</h4>
+              <button class="edit-btn" onclick="editSection('account')">Edit</button>
+            </div>
+            <p><strong>Name:</strong> Tanmoy Paul</p>
+            <p><strong>Email:</strong> ptanmoy641@gmail.com</p>
+            
+
+            <div id="account-edit" class="edit-section">
+              <label>First Name: <input type="text" value="Tan"></label>
+              <label>Last Name: <input type="text" value="Paul"></label>
+              <label>Email: <input type="email" value="ptanmoy641@gmail.com"></label>
+              <button class="save-btn" onclick="saveChanges('account')">Save Changes</button>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>Company Details</h4>
+            <p><strong>Company Name:</strong> Tanmoy Paul</p>
+            <p><strong>Website:</strong> <a href="#">https://www.youtube.com/...</a></p>
+            <p><strong>Industry:</strong> Tech & IT</p>
+            <p><strong>Size:</strong> It's just me</p>
+            <p><strong>Tagline:</strong> tbhrtbr</p>
+            <p><strong>Description:</strong> rtbhrtrtfrbrr</p>
+            <button class="edit-btn" onclick="editSection('company')">Edit</button>
+
+            <div id="company-edit" class="edit-section">
+              <label>Company Name: <input type="text" value="Tanmoy Paul"></label>
+              <label>Website: <input type="url" value="https://www.youtube.com/watch?v=YsCeMprm2O0"></label>
+              <label>Industry: <input type="text" value="Tech & IT"></label>
+              <label>Size: 
+                <select>
+                  <option selected>It's just me</option>
+                  <option>2-9 employees</option>
+                  <option>10-99 employees</option>
+                  <option>100-1,000 employees</option>
+                  <option>More than 1,000 employees</option>
+                </select>
+              </label>
+              <label>Tagline: <input type="text" value="tbhrtbr"></label>
+              <label>Description: <textarea>rtbhrtrtfrbrr</textarea></label>
+              <button class="save-btn" onclick="saveChanges('company')">Save Changes</button>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>Company Contacts</h4>
+            <p><strong>Owner:</strong> Tan Paul</p>
+            <p><strong>Phone:</strong> +91 75578 82856</p>
+            <p><strong>Time Zone:</strong> UTC+05:30 Mumbai, Kolkata, Chennai, New Delhi</p>
+            <p><strong>Country:</strong> India</p>
+            <p><strong>Address:</strong> Kalyani, Block-A12, Nadia, West Bengal</p>
+            <button class="edit-btn" onclick="editSection('contacts')">Edit</button>
+
+            <div id="contacts-edit" class="edit-section">
+              <label>Owner: <input type="text" value="Tan Paul"></label>
+              <label>Phone: <input type="tel" value="+91 75578 82856"></label>
+              <label>Time Zone: <input type="text" value="UTC+05:30 Mumbai, Kolkata, Chennai, New Delhi"></label>
+              <label>Country: <input type="text" value="India"></label>
+              <label>Address: <input type="text" value="Kalyani, Block-A12, Nadia, West Bengal"></label>
+              <button class="save-btn" onclick="saveChanges('contacts')">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="billing-content" class="right-panel-content" style="display: none;">
+        <h3>Billing and Payments</h3>
+        <div class="billing-section">
+          <div class="billing-card">
+            <h4>Company Billing Cycle</h4>
+            <p><strong>Billing Cycle:</strong> Weekly</p>
+            <p><strong>Terms:</strong> Standard</p>
+            <p><strong>Balance:</strong> $0.00</p>
+          </div>
+
+          <div class="billing-card">
+            <h4>Billing Methods</h4>
+            <p>You haven’t set up any billing methods yet. Add a method so you can hire when you’re ready.</p>
+            <button class="add-method-btn">Add Billing Method</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="password-content" class="right-panel-content" style="display: none;">
+    <h3>Password and Security</h3>
+
+  <!-- Authentication Options Section -->
+  <div class="security-section">
+    <div class="security-card">
+      <h4>Authentication Options</h4>
+
+      <!-- Password Section -->
+      <div class="auth-option">
+        <h5>Password</h5>
+        <p><strong>Status:</strong> Password has been set</p>
+        <p>Choose a strong, unique password that’s at least 8 characters long.</p>
+        <button class="edit-btn" onclick="editSection('password')">Edit Password</button>
+
+        <div id="password-edit" class="edit-section">
+          <label>New Password: <input type="password" placeholder="Enter new password"></label>
+          <label>Confirm Password: <input type="password" placeholder="Confirm new password"></label>
+          <button class="save-btn" onclick="saveChanges('password')">Save Changes</button>
+        </div>
+      </div>
+
+      <!-- Two-Step Verification Section -->
+      <div class="auth-option">
+        <h5>Two-step verification options</h5>
+        <p>Add an extra layer of security to block unauthorized access and protect your account.</p>
+
+        <!-- Authenticator App -->
+        <div class="verification-option">
+          <p><strong>Authenticator app code</strong> <span class="recommendation">(Recommended)</span></p>
+          <p>Enter a code generated by your authenticator app to confirm it’s you.</p>
+          <button class="setup-btn">Set Up</button>
+        </div>
+
+        <!-- Mobile App Prompt -->
+        <div class="verification-option">
+          <p><strong>Mobile app prompt</strong></p>
+          <p>Receive a prompt from your mobile app to confirm it’s you.</p>
+          <button class="setup-btn">Set Up</button>
+        </div>
+
+        <!-- Security Question -->
+        <div class="verification-option">
+          <p><strong>Security question</strong> <span class="status-enabled">(Enabled)</span></p>
+          <p>Answer a question you choose to confirm it’s you.</p>
+          <button class="edit-btn" onclick="editSection('security-question')">Edit Security Question</button>
+
+          <div id="security-question-edit" class="edit-section">
+            <label>Select a question: 
+              <select>
+                <option>What is your mother’s maiden name?</option>
+                <option>What was your first pet’s name?</option>
+                <option>What was the name of your elementary school?</option>
+              </select>
+            </label>
+            <label>Answer: <input type="text" placeholder="Enter your answer"></label>
+            <button class="save-btn" onclick="saveChanges('security-question')">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="membership-content" class="right-panel-content" style="display: block;">
+    <h3>Membership Settings</h3>
+  
+    <div class="membership-section">
+      <!-- Current Plan Section -->
+      <div class="current-plan">
+        <h4>Current Plan: Marketplace</h4>
+        <p><strong>Plan start date:</strong> 9/8/2024</p>
+  
+        <!-- Upgrade Membership Button -->
+        <button class="upgrade-btn">Upgrade Membership</button>
+      </div>
+  
+      <!-- Plan Benefits Section -->
+      <div class="plan-benefits">
+        <h4>Your Plan Benefits</h4>
+        <ul>
+          <li>Discover quality talent fast</li>
+          <li>Post a job and receive proposals from talent</li>
+          <li>See verified work history and reviews</li>
+          <li>Send 30 invitations to talent per job post</li>
+          <li>Use advanced search filters</li>
+          <li>Collaboration tools for project tracking</li>
+          <li>Chat, video call, and share files with talent</li>
+          <li>Get advanced reporting and tracking</li>
+          <li>Set coworker teams and member permission settings</li>
+          <li>Customize your invoice with activity codes</li>
+          <li>Account support and guidance</li>
+          <li>24/7 premium customer support</li>
+          <li>Safe, easy payments</li>
+          <li>Get an extra level of security with Upwork Payment Protection</li>
+          <li>Pay as you go billing for milestone and hourly contracts</li>
+          <li>3-5% marketplace fee depending on payment method</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="teams-content" class="right-panel-content" style="display: block;">
+    <h3>Teams</h3>
+    <p>Teams let you organize contracts by department or manager. Use them to simplify your reporting, permission, and recruiting management.</p>
+    
+    <div class="teams-section">
+      <!-- Team Information -->
+      <div class="team-info">
+        <div class="team-details">
+          <p><strong>Team Name:</strong> Tanmoy Paul</p>
+          <p><strong>Financial Account:</strong> Tanmoy Paul (109038945)</p>
+          <p><strong>PO Number:</strong> (To be provided)</p>
+        </div>
+        
+        <!-- Edit Team Info Button -->
+        <button class="edit-team-btn">Edit Team Info</button>
+      </div>
+    </div>
+  </div>
+  <div id="notification-content" class="right-panel-content" style="display: none;">
+    <h3>Notification Settings</h3>
+    <div class="notification-settings-section">
+      <!-- Messages Notification Settings -->
+      <div class="notification-card">
+        <h4>Messages</h4>
+  
+        <!-- Email Updates -->
+        <div class="notification-option">
+          <h5>Email Updates</h5>
+          <p><strong>Email:</strong> Sending to <span class="email-mask">p******41@gmail.com</span></p>
+          <label>
+            <input type="checkbox" checked>
+            Send an email with unread activity for: <strong>All activity</strong>
+          </label>
+          <label>
+            Every 15 minutes
+            <input type="radio" name="email-frequency" checked> Only send when offline or idle
+          </label>
+        </div>
+  
+        <!-- Desktop Notifications -->
+        <div class="notification-option">
+          <h5>Desktop</h5>
+          <label>
+            <input type="checkbox" checked>
+            Show notifications for: <strong>All activity</strong>
+          </label>
+          <label>
+            <input type="checkbox" checked>
+            Also play a sound
+          </label>
+          <label>
+            <input type="checkbox" checked>
+            Increment message counter for: <strong>All activity</strong>
+          </label>
+        </div>
+  
+        <!-- Mobile Notifications -->
+        <div class="notification-option">
+          <h5>Mobile</h5>
+          <label>
+            <input type="checkbox" checked>
+            Show notifications for: <strong>All activity</strong>
+          </label>
+          <label>
+            <input type="checkbox" checked>
+            Increment message counter for: <strong>All activity</strong>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="members-permissions-content" class="right-panel-content" style="display: none;">
+    <h3>Members & Permissions</h3>
+    <div class="members-section">
+      <!-- Current Member -->
+      <div class="member-card">
+        <h4>Active Members</h4>
+        <div class="member-info">
+          <p><strong>Tan Paul (Me)</strong></p>
+          <button class="invite-btn">Invite New User</button>
+        </div>
+      </div>
+  
+      <!-- Invitations -->
+      <div class="invitations-section">
+        <h4>Invitations</h4>
+        <p>No current invitations.</p>
+      </div>
+  
+      <!-- Search Members -->
+      <div class="search-section">
+        <h4>Search Members by Name</h4>
+        <input type="text" placeholder="Search by name" class="search-input">
+      </div>
+    </div>
+  </div>
+  <div id="connected-services-content" class="right-panel-content" style="display: none;">
+    <h3>Connected Services</h3>
+  
+    <!-- Google Sign-In -->
+    <div class="service-card">
+      <div class="service-info">
+        <img src="google-icon.png" alt="Google Icon" class="service-icon">
+        <div>
+          <p><strong>Sign in with Google</strong></p>
+          <p>Sign into Upwork with 1-click</p>
+          <p>You are not signed in through Google</p>
+        </div>
+      </div>
+      <button class="continue-btn">Continue with Google</button>
+    </div>
+  
+    <!-- Apple Sign-In -->
+    <div class="service-card">
+      <div class="service-info">
+        <img src="apple-icon.png" alt="Apple Icon" class="service-icon">
+        <div>
+          <p><strong>Sign in with Apple</strong></p>
+          <p>Sign into Upwork with 1-click</p>
+          <p>You are not signed in through Apple</p>
+        </div>
+      </div>
+      <button class="continue-btn">Continue with Apple</button>
+    </div>
+  </div>
+  
+
+      <p>Select a setting from the left to view details.</p>
+    </div>
+  </div>
+
+  <script>
+        function showContent(section) {
+        const allContent = document.querySelectorAll('.right-panel-content');
+        
+        // Hide all content sections
+        allContent.forEach(content => {
+            content.style.display = 'none';
+        });
+        
+        // Show the selected content
+        const contentToShow = document.getElementById(`${section}-content`);
+        if (contentToShow) {
+            contentToShow.style.display = 'block';
+        }
+    }
+
+    function editSection(section) {
+        const editSection = document.getElementById(`${section}-edit`);
+        if (editSection) {
+            editSection.style.display = 'block';
+        }
+    }
+
+    function saveChanges(section) {
+        const editSection = document.getElementById(`${section}-edit`);
+        if (editSection) {
+            editSection.style.display = 'none';
+            alert('Changes saved successfully!');
+        }
+    }
+
+  </script>
+</body>
+</html>

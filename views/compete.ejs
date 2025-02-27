@@ -1,0 +1,111 @@
+<%- include("partials/header.ejs") %>
+<section class="compete-section">
+    <div class="compete-container">
+        <!-- Contests Header -->
+        <div class="contests-header">
+            <span class="all-contests">All Contests</span>
+            <span class="buttons">
+                <button class="ongoing-btn">Ongoing Contest</button>
+                <button class="past-btn">Past Contest</button>
+            </span>
+        </div>
+        <hr>
+        <!-- Active and Upcoming Contests Section -->
+        <div class="contests-section">
+            <div class="active-contests">
+                <h2>Active Contests</h2>
+                <div class="contest-card">
+                    <span class="contest-name">ProjectEureka+</span>
+                    <span class="contest-status">Open Indefinitely</span>
+                    <button class="view-details-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="upcoming-contests">
+                <h2>Upcoming Contests</h2>
+                <div class="contest-card">
+                    <span class="contest-name">Women in Design 4th Edition - Summer</span>
+                    <span class="contest-status">Registrations open till 16th September</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hiring Challenges Section -->
+        <div class="hiring-challenge">
+            <h2>Hiring Challenge</h2>
+            <div class="challenge-card">
+                <span class="challenge-name">Women in Design 4th Edition - Summer</span>
+                <span class="challenge-date">Saturday, 21 September 2024</span>
+                <button class="register-btn">Register Now</button>
+                <span class="registration-info">Registrations open till 16th September</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="archived-container">
+        <!-- Archived Contests Section -->
+        <div class="archived-contests-section">
+            <h2>Archived Contests</h2>
+            <div class="archived-contest-row"> <!-- Archived contests row layout -->
+                <div class="archived-contest-card">
+                    <span class="contest-name">web development</span>
+                    <span class="contest-status">Contests ended on 29th August 2021</span>
+                    <a href="/contest1">
+                        <button class="view-challenges-btn">View Challenges</button>
+                      </a>
+                      
+                </div>
+                <div class="archived-contest-card">
+                    <span class="contest-name">Coding Contest</span>
+                    <span class="contest-status">Contests ended on 28th June 2021</span>
+                    <a href="/contest2">
+                    <button class="view-challenges-btn">View Challenges</button>
+                </a>
+                </div>
+                <div class="archived-contest-card">
+                    <span class="contest-name"> Coding Challenge</span>
+                    <span class="contest-status">Contests ended on 18th June 2021</span>
+                    <button class="view-challenges-btn">View Challenges</button>
+                </div>
+                <!-- Add more contest cards here -->
+                <div class="archived-contest-card">
+                    <span class="contest-name">Debug Code</span>
+                    <span class="contest-status">Contests ended on 28th June 2021</span>
+                    <button class="view-challenges-btn">View Challenges</button>
+                </div>
+                
+            </div>
+        </div>
+    
+        <!-- College Contests Section -->
+        <div class="college-contests-section">
+            <h2>College Contests</h2>
+            <div class="college-contest-row"> <!-- College contests row layout -->
+                <div class="college-contest-card">
+                    <span class="contest-name">ROUND1 </span>
+                    <span class="contest-status">Event ended on 20th March 2021</span>
+                    <button class="view-challenges-btn">View Challenges</button>
+                </div>
+                <div class="college-contest-card">
+                    <span class="contest-name">Hack the Interview </span>
+                    <span class="contest-status">Event ended on 29th June 2020</span>
+                    <button class="view-challenges-btn">View Challenges</button>
+                </div>
+                <div class="college-contest-card">
+                    <span class="contest-name">Hack the Interview IV </span>
+                    <span class="contest-status">Event ended on 1st June 2020</span>
+                    <button class="view-challenges-btn">View Challenges</button>
+                </div>
+                <!-- Add more contest cards here -->
+                <div class="college-contest-card">
+                    <span class="contest-name">Interview  </span>
+                    <span class="contest-status">Event ended on 1st June 2020</span>
+                    <button class="view-challenges-btn">View Challenges</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Confirmation</title>
+    <link rel="stylesheet" href="/styles/hire-confirmation.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirm <span style="color: #6528F7;">Hiring</span></h1>
+
+        <div class="freelancer-info">
+            <img src="<%= freelancer.profile_photo %>" alt="Freelancer Image" class="profile-pic">
+            <h2><%= freelancer.first_name %> <%= freelancer.last_name %></h2>
+            <p>Specialization: <%= freelancer.specialization %></p>
+            <a href="/profile/<%= freelancer.user_id %>" class="view-profile">View Full Profile</a>
+        </div>
+
+        <div class="job-info">
+            <h3>Job Details</h3>
+            <p><strong>Job Title:</strong> <%= job.title %></p>
+            <p><strong>Job Description:</strong> <%= job.description %></p>
+        </div>
+
+        <form action="/hire/<%= freelancer.user_id %>/<%= job.job_id %>" method="POST">
+            <h3>Confirm Project Details</h3>
+            
+            <!-- Editable Project Scope -->
+            <label for="scope">Project Scope</label>
+            <textarea name="scope" id="scope" required><%= job.scope %></textarea>
+
+            <!-- Payment Milestones -->
+            <label for="milestones">Payment Milestones (optional)</label>
+            <input type="text" name="milestones" id="milestones" placeholder="e.g., 50% upfront, 50% on completion">
+
+            <!-- Proposed Deadline -->
+            <label for="deadline">Deadline</label>
+            <input type="date" name="deadline" id="deadline" value="<%= job.deadline %>" required>
+
+            <button type="submit" class="hire-btn">Send Offer</button>
+        </form>
+    </div>
+</body>
+</html>

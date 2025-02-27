@@ -1,0 +1,82 @@
+<%- include("partials/header.ejs") %>
+<section class="frl-section">
+    <div class="frl-container">
+        <!-- Search Bar -->
+        <div class="frl-search-bar">
+            <input class="frl-search-bar-input" type="text" placeholder="Search for jobs...">
+            <button class="frl-search-bar-button">Search</button>
+        </div>
+
+        <!-- Job Categories -->
+
+<% if (jobs.length > 0) { %>
+    <!-- Job Cards -->
+    <div class="frl-job-card-container"> 
+        <% var counter= Number(0); %>  
+        <% jobs.forEach(job => { %>
+
+            <% if(job.status === 'open') {%>
+      
+                <a href="/job-details/<%= job.job_id %>" class="frl-job-link">
+                    <div class="frl-job-card">
+                        <div class="frl-cl-details">
+                            <% if (job.client_photo === null) { %>
+                                <img src="/images/user.jpg" alt="<%= job.client_name %>">
+                            <% } else { %>
+                                <img src="<%= job.client_photo %>" alt="<%= job.client_name %>">
+                            <% } %>
+                            <div class="client-name-review">
+                                <h4 style="color: #6528F7;"><%= job.client_name %></h4>
+                                <!-- Rating -->
+                                <p>
+                                    <strong>
+                                        <span class="stars">
+                                            <span class="full-stars" style="color: gold; font-size: 16px;"><%= generateStars(client_.rating) %></span> <%= Math.floor(client_.rating) %>/5 (<%= client_.rating_count %>)
+                                        </span>
+                                    </strong>
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <div class="frl-job-details">
+                            <p style="font-weight: bold;"><%= job.title %></p>
+                            <p><%= job.description %></p>
+                            <div class="frl-price"><%= job.min_price %> - <%= job.max_price %></div>
+                        </div>
+                    </div>
+                </a>
+            <% } else { %>
+                <% counter = counter + Number(1); %>
+                <% if(counter===jobs.length) {%>
+                    <h2>No open jobs available at the moment</h2>
+                <% } %>    
+            <% } %>    
+        <% }) %>
+    </div>
+<% } else { %>
+    <h2>No jobs available at the moment</h2>
+<% } %>
+    <!-- Search Bar -->
+    <!-- <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for jobs...">
+        <button id="search-button">Search</button>
+    </div> -->
+
+    <!-- Category Filters -->
+    <!-- <div class="filters">
+        <button onclick="filterJobs('all')">All Jobs</button>
+        <button onclick="filterJobs('graphic-design')">Graphic Design</button>
+        <button onclick="filterJobs('programming')">Programming & Tech</button>
+        <button onclick="filterJobs('digital-marketing')">Digital Marketing</button>
+        <button onclick="filterJobs('video-animation')">Video Animation</button>
+        <button onclick="filterJobs('ai-services')">AI Services</button>
+    </div> -->
+
+    <!-- Job Listings -->
+    <!-- <div class="jobs-container" id="jobs-container"></div> -->
+
+
+</section>
+    
+<%- include("partials/footer.ejs") %>

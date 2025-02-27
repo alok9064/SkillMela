@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for jobs...">
+        <button id="search-button">Search</button>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="filters">
+        <button onclick="filterJobs('all')">All Jobs</button>
+        <button onclick="filterJobs('graphic-design')">Graphic Design</button>
+        <button onclick="filterJobs('programming')">Programming & Tech</button>
+        <button onclick="filterJobs('digital-marketing')">Digital Marketing</button>
+        <button onclick="filterJobs('video-animation')">Video Animation</button>
+        <button onclick="filterJobs('ai-services')">AI Services</button>
+    </div>
+
+    <!-- Job Listings -->
+    <div class="jobs-container" id="jobs-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchJobs();
+
+            // Event listener for search button
+            document.getElementById('search-button').addEventListener('click', searchJobs);
+        });
+
+        // Fetch all jobs from backend on page load
+        async function fetchJobs() {
+            try {
+                const response = await fetch('http://localhost:5000/jobs');
+                if (response.ok) {
+                    const jobs = await response.json();
+                    displayJobs(jobs);
+                } else {
+                    console.error('Failed to fetch jobs:', response.status);
+                }
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+            }
+        }
+
+        // Function to search jobs
+        async function searchJobs() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            try {
+                const response = await fetch(`http://localhost:5000/jobs/search/${searchInput}`);
+                if (response.ok) {
+                    const jobs = await response.json();
+                    displayJobs(jobs);
+                } else {
+                    console.error('Failed to search jobs:', response.status);
+                }
+            } catch (error) {
+                console.error('Error searching jobs:', error);
+            }
+        }
+
+        // Function to filter jobs by category
+        async function filterJobs(category) {
+            try {
+                let url = 'http://localhost:5000/jobs';
+                if (category !== 'all') {
+                    url = `http://localhost:5000/jobs/category/${category}`;
+                }
+                const response = await fetch(url);
+                if (response.ok) {
+                    const jobs = await response.json();
+                    displayJobs(jobs);
+                } else {
+                    console.error('Failed to fetch jobs by category:', response.status);
+                }
+            } catch (error) {
+                console.error('Error fetching jobs by category:', error);
+            }
+        }
+
+        // Display jobs in the jobs container
+        function displayJobs(jobs) {
+            const jobsContainer = document.getElementById('jobs-container');
+            jobsContainer.innerHTML = '';  // Clear previous jobs
+
+            jobs.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.className = `job-card ${job.category}`;
+                
+                jobCard.innerHTML = `
+                    <div class="profile-container">
+                        <img src="${job.profilePic}" alt="${job.name}" class="profile-pic">
+                        <div class="profile-info">
+                            <span class="profile-name">${job.name}</span>
+                            <span class="ratings">${'⭐'.repeat(job.ratings)}</span>
+                        </div>
+                    </div>
+                    <div class="job-details">
+                        <h3>${job.title}</h3>
+                        <p>${job.description}</p>
+                        <span class="price">${job.price}</span>
+                    </div>
+                    <div class="fav-icon" onclick="toggleFavorite(this)">
+                        <i class="heart">&#10084;</i>
+                    </div>
+                `;
+                jobsContainer.appendChild(jobCard);
+            });
+        }
+
+        // Function to toggle favorite icon color
+        function toggleFavorite(icon) {
+            icon.classList.toggle('red');
+        }
+    </script>
+</body>
+</html>
