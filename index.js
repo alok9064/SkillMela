@@ -25,6 +25,8 @@ const __dirname = path.dirname(__filename);
 
 
 env.config();
+console.log("Database URL:", process.env.DATABASE_URL);
+
 
 // Middleware
 app.use(
@@ -42,6 +44,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(bodyParser.json());
+
+
+// const db = new pg.Client({
+//   connectionString: process.env.DATABASE_URL
+// });
+
+// db.connect()
+//   .then(() => console.log('Connected to Database'))
+//   .catch(err => console.error('Connection Error:', err));
 
 const db = new pg.Client({
     user: process.env.PG_USER,
@@ -917,6 +928,8 @@ app.post('/hire/:userId/:jobId', async (req, res) => {
   }
 });
 
+    
+
 // PROJECT DASHBOARD FOR CLIENT
 app.get('/client-proj-dashboard/:userId', async (req, res) => {
 
@@ -925,6 +938,7 @@ app.get('/client-proj-dashboard/:userId', async (req, res) => {
   try {
     // Fetch project details by userId
     const projectResult = await db.query('SELECT * FROM projects WHERE client_id = $1', [userId]);
+   
     const project = projectResult.rows[0];
 
     // Fetch job details related to the project
@@ -1331,8 +1345,8 @@ app.post('/verify-otp', async (req, res) => {
   
             // Create profiles based on role
             if (role === 'freelancer') {
-              await db.query(`INSERT INTO user_profiles (user_id, first_name, last_name)
-                              VALUES ($1, '', '')`, [userId]);
+              await db.query(`INSERT INTO user_profiles (user_id, first_name, last_name, email)
+                              VALUES ($1, '', '', $2)`, [userId], [email]);
             } else if (role === 'client') {
               await db.query(`INSERT INTO client_profiles (client_id, company_name)
                               VALUES ($1, '')`, [userId]);             
