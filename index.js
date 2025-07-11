@@ -54,8 +54,8 @@ const db = new pg.Client({
 });
 
 db.connect()
-//   .then(() => console.log('Connected to Database'))
-//   .catch(err => console.error('Connection Error:', err));
+  .then(() => console.log('Connected to Database'))
+  .catch(err => console.error('Connection Error:', err));
 
 // const db = new pg.Client({
 //     user: process.env.PG_USER,
@@ -1349,7 +1349,7 @@ app.post('/verify-otp', async (req, res) => {
             // Create profiles based on role
             if (role === 'freelancer') {
               await db.query(`INSERT INTO user_profiles (user_id, first_name, last_name, email)
-                              VALUES ($1, '', '', $2)`, [userId], [email]);
+                              VALUES ($1, '', '', $2)`, [userId,  email]);
             } else if (role === 'client') {
               await db.query(`INSERT INTO client_profiles (client_id, company_name)
                               VALUES ($1, '')`, [userId]);             
